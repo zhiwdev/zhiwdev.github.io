@@ -14,7 +14,7 @@ The website is structured into the following main sections:
 - **[Bio](bio.html)**: My background, experience, and professional journey.
 - **[Apps](apps.html)**: A showcase of applications and software projects I've built.
 - **[Blog](blog.html)**: Articles and essays on various topics.
-- **[Publications](papers.html)**: A list of my research papers and academic contributions.
+- **[Publications](publications.html)**: A list of my research papers and academic contributions.
 - **[Fun](fun.html)**: Personal interests and side projects.
 
 ## 🛠️ Technology

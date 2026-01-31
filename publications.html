@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications • Zhi Wang</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #faf9f6;
+            --charcoal: #2c2c2c;
+            --gold: #d4af37;
+            --sage: #8a9a7b;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        header {
+            margin-bottom: 100px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--sage));
+            animation: expandLine 1.5s ease-out 0.5s forwards;
+        }
+
+        @keyframes expandLine {
+            to {
+                width: 100%;
+            }
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+
+        nav {
+            margin: 60px 0 100px;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 30px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        section {
+            margin-bottom: 120px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        section:nth-child(1) {
+            animation-delay: 1s;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 2;
+        }
+
+        .intro {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            font-weight: 300;
+            line-height: 2.2;
+            margin-bottom: 40px;
+        }
+
+        .papers-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .papers-table th,
+        .papers-table td {
+            text-align: left;
+            padding: 16px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        .papers-table th {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .papers-table a {
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 2px;
+        }
+
+        .papers-table a:hover {
+            color: var(--gold);
+        }
+
+        footer {
+            margin-top: 150px;
+            padding-top: 50px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .accent-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin: 0 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            nav ul {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bio.html">Bio</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="fun.html">Fun</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section id="papers">
+            <h2>Publications</h2>
+            <p class="intro">
+                Publications and proceedings.
+            </p>
+            <table class="papers-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Yang, J. J., <strong>Wang, Z.</strong>, Trucco, E. M., Buu, A., &amp; Lin, H.-C. (2022).
+                            Chronic pain and delinquency partially explain the effect of the DRD4 gene polymorphism on
+                            adult substance use. <em>The American Journal of Drug and Alcohol Abuse, 48</em>(2),
+                            235–244.</td>
+                        <td><a href="https://doi.org/10.1080/00952990.2021.1977311" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td>Lin, H.-C., <strong>Wang, Z.</strong>, Hu, Y.-H., Simon, K., &amp; Buu, A. (2022).
+                            Characteristics of statewide prescription drug monitoring programs and potentially
+                            inappropriate opioid prescribing to patients with non-cancer chronic pain: A machine
+                            learning application. <em>Preventive Medicine, 161</em>, 107116.</td>
+                        <td><a href="https://doi.org/10.1016/j.ypmed.2022.107116" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wang, Z.</strong>, Buu, A., Lohrmann, D. K., Shih, P. C., &amp; Lin, H.-C. (2021).
+                            The role of family conflict in mediating impulsivity to early substance exposure among
+                            preteens. <em>Addictive Behaviors, 115</em>, 106779.</td>
+                        <td><a href="https://doi.org/10.1016/j.addbeh.2020.106779" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wang, Z.</strong>, Lohrmann, D. K., Buu, A., &amp; Lin, H.-C. (2021). Resilience as
+                            a mediator between adverse childhood experiences and prescription opioid misuse among U.S.
+                            adults. <em>Substance Use &amp; Misuse</em>.</td>
+                        <td><a href="https://doi.org/10.1080/10826084.2021.1879148" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chen, X., <strong>Wang, Z.</strong>, Bromfield, S. G., DeVries, A., Pryor, D., &amp; Willey,
+                            V. (2021). Identification and comparison of patient characteristics for those hospitalized
+                            with COVID-19 versus influenza using machine learning in a commercially insured US
+                            population. <em>Pragmatic and Observational Research</em>, 9–13.</td>
+                        <td><a href="https://www.dovepress.com/getfile.php?fileID=70328" target="_blank"
+                                rel="noopener noreferrer">PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Salganik, M. J., Lundberg, I., Kindel, A. T., Ahearn, C. E., Al-Ghoneim, K., Almaatouq, A.,
+                            &amp; others. (2021). “Measuring the predictability of life outcomes with a scientific mass
+                            collaboration": Correction. <em>Proceedings of the National Academy of Sciences</em>.</td>
+                        <td><a href="https://doi.org/10.1073/pnas.2118703118" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td>Salganik, M. J., Lundberg, I., Kindel, A. T., Ahearn, C. E., Al-Ghoneim, K., Almaatouq, A.,
+                            &amp; others. (2021). Erratum: Measuring the predictability of life outcomes with a
+                            scientific mass collaboration. <em>Proceedings of the National Academy of Sciences,
+                                118</em>(50), e2118703118.</td>
+                        <td><a href="https://doi.org/10.1073/pnas.2118703118" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td>Salganik, M. J., Lundberg, I., Kindel, A. T., Ahearn, C. E., Al-Ghoneim, K., Almaatouq, A.,
+                            &amp; others. (2021). Measuring the predictability of life outcomes with a scientific mass
+                            collaboration (vol 117, pg 8398, 2020). <em>Proceedings of the National Academy of Sciences,
+                                118</em>(50), 2118703118.</td>
+                        <td><a href="https://doi.org/10.1073/pnas.2118703118" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td>Salganik, M. J., Lundberg, I., Kindel, A. T., Ahearn, C. E., Al-Ghoneim, K., Almaatouq, A.,
+                            &amp; others. (2020). Measuring the predictability of life outcomes with a scientific mass
+                            collaboration. <em>Proceedings of the National Academy of Sciences, 117</em>(15), 8398–8403.
+                        </td>
+                        <td><a href="https://ora.ox.ac.uk/objects/uuid%3A898539e8-61d8-4538-be68-bd0077e219e2/files/r2v23vv19j"
+                                target="_blank" rel="noopener noreferrer">PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wang, Z.</strong>, &amp; Lin, H.-C. (2020). Having a consistent HIV health care
+                            provider and HIV-related clinical outcomes. <em>American Journal of Managed Care,
+                                26</em>(7), 288–294.</td>
+                        <td><a href="https://cdn.sanity.io/files/0vv8moc6/ajmc/001f735b87a758cb89abb8daa8bddb50240d3e71.pdf/AJMC_07_2020_Wang%2520final.pdf"
+                                target="_blank" rel="noopener noreferrer">PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>Lin, H.-C., <strong>Wang, Z.</strong>, Simoni-Wastila, L., Boyd, C., &amp; Buu, A. (2019).
+                            Interstate data sharing of prescription drug monitoring programs and associated opioid
+                            prescriptions among patients with non-cancer chronic pain. <em>Preventive Medicine,
+                                118</em>, 59–65.</td>
+                        <td><a href="https://doi.org/10.1016/j.ypmed.2018.10.011" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td>Lin, H.-C., <strong>Wang, Z.</strong>, Boyd, C., Simoni-Wastila, L., &amp; Buu, A. (2018).
+                            Associations between statewide prescription drug monitoring program (PDMP) requirement and
+                            physician patterns of prescribing opioid analgesics for patients with non-cancer chronic
+                            pain. <em>Addictive Behaviors, 76</em>, 348–354.</td>
+                        <td><a href="https://doi.org/10.1016/j.addbeh.2017.08.032" target="_blank"
+                                rel="noopener noreferrer">DOI</a></td>
+                    </tr>
+                    <tr>
+                        <td>Lin, H.-C., <strong>Wang, Z.</strong>, Simoni-Wastila, L., Boyd, C., &amp; Buu, A. (2018).
+                            Interstate Data Sharing of Prescription Drug Monitoring Programs and Associated Physician
+                            Prescribing of Opioid Analgesics for Patients with Non-Cancer Chronic Pain. In <em>APHA's
+                                2018 Annual Meeting &amp; Expo</em> (Nov. 10–14).</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Lee, Y.-H., <strong>Wang, Z.</strong>, Chiang, T. C., &amp; Liu, C.-T. (2017). Beverage
+                            intake, smoking behavior, and alcohol consumption in contemporary China—a cross-sectional
+                            analysis from the 2011 China Health and Nutrition Survey. <em>International Journal of
+                                Environmental Research and Public Health, 14</em>(5), 493.</td>
+                        <td><a href="https://www.mdpi.com/1660-4601/14/5/493/pdf?version=1524648203" target="_blank"
+                                rel="noopener noreferrer">PDF</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>© 2026 Zhi Wang • Designed with intention and care</p>
+        </footer>
+    </div>
+</body>
+
+</html>
