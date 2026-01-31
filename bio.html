@@ -286,8 +286,11 @@
                 </div>
 
                 <!-- Profile Photo -->
-                <img src="profile-photo.jpg" alt="Zhi Wang"
-                    style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: 35% 30%; border: 3px solid var(--charcoal); box-shadow: 0 8px 30px rgba(0,0,0,0.1); flex-shrink: 0;">
+                <div
+                    style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid var(--charcoal); box-shadow: 0 8px 30px rgba(0,0,0,0.1); flex-shrink: 0; position: relative;">
+                    <img src="profile-photo.jpg" alt="Zhi Wang"
+                        style="position: absolute; width: 116%; height: auto; left: 50%; top: 50%; transform: translate(-50%, -50%) translate(-18px, 6px);">
+                </div>
             </div>
 
             <h3
