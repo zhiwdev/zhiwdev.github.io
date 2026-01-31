@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhi Wang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #faf9f6;
+            --charcoal: #2c2c2c;
+            --gold: #d4af37;
+            --sage: #8a9a7b;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* Elegant header with underline animation */
+        header {
+            margin-bottom: 100px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--sage));
+            animation: expandLine 1.5s ease-out 0.5s forwards;
+        }
+
+        @keyframes expandLine {
+            to { width: 100%; }
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+
+        /* Navigation with sophisticated hover */
+        nav {
+            margin: 60px 0 100px;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 30px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        /* Content sections */
+        section {
+            margin-bottom: 120px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        section:nth-child(1) { animation-delay: 1s; }
+        section:nth-child(2) { animation-delay: 1.2s; }
+        section:nth-child(3) { animation-delay: 1.4s; }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 2;
+        }
+
+        .intro {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            font-weight: 300;
+            line-height: 2.2;
+            margin-bottom: 40px;
+        }
+
+        /* Elegant quote styling */
+        blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--charcoal);
+            border-left: 3px solid var(--gold);
+            padding: 40px 0 40px 60px;
+            margin: 60px 0;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        blockquote::before {
+            content: '"';
+            font-size: 8rem;
+            position: absolute;
+            left: 0;
+            top: -20px;
+            color: var(--gold);
+            opacity: 0.2;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        cite {
+            display: block;
+            margin-top: 20px;
+            font-size: 1rem;
+            font-style: normal;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        /* Project cards with refined hover */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            padding: 40px 30px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--sage) 100%);
+            opacity: 0.05;
+            transition: height 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--charcoal);
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+        }
+
+        /* Contact links */
+        .contact-links {
+            display: flex;
+            gap: 30px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 15px 35px;
+            border: 1px solid var(--charcoal);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .contact-links a:hover::before {
+            left: 0;
+        }
+
+        .contact-links a:hover {
+            color: white;
+            border-color: var(--gold);
+        }
+
+        footer {
+            margin-top: 150px;
+            padding-top: 50px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* Decorative elements */
+        .accent-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin: 0 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+            .container { padding: 40px 20px; }
+            nav ul { gap: 30px; }
+            blockquote { font-size: 1.3rem; padding-left: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Zhi Wang</h1>
+            <p class="tagline">Creator <span class="accent-dot"></span> Thinker <span class="accent-dot"></span> Builder</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#writing">Writing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section id="about">
+            <p class="intro">
+                I'm a [your role] passionate about [your focus area]. My work sits at the intersection 
+                of [field A] and [field B], where I explore how [your mission/vision].
+            </p>
+            
+            <p>
+                Currently, I'm at [organization], leading [your work]. Previously, I've contributed to 
+                [previous achievements] at [previous organizations]. My background spans [your expertise areas], 
+                with a particular focus on [specialty].
+            </p>
+
+            <blockquote>
+                Your inspiring quote or personal philosophy that guides your work and life
+                <cite>— Attribution or your own words</cite>
+            </blockquote>
+
+            <p>
+                Beyond my professional work, I'm committed to [communities/causes]. I regularly speak at 
+                conferences, contribute to open source, and mentor emerging talents in [field]. 
+                My goal is to [your mission].
+            </p>
+        </section>
+
+        <section id="work">
+            <h2>Selected Work</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Project Alpha</h3>
+                    <p>Description of your key project, its impact, and technologies used.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Research Initiative</h3>
+                    <p>Overview of important research work and its contributions to the field.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Community Work</h3>
+                    <p>Your involvement in open source, teaching, or community initiatives.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <p>
+                I'm always interested in collaborating on meaningful projects, speaking at events, 
+                or simply having thoughtful conversations about [your interests].
+            </p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                <a href="/resume.pdf" target="_blank">Resume</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Zhi Wang • Designed with intention and care</p>
+        </footer>
+    </div>
+</body>
+</html>
