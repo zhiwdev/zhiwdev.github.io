@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhi Wang</title>
+    <title>Blog • Zhi Wang</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -174,47 +174,6 @@
             margin-bottom: 40px;
         }
 
-        .contact-links {
-            display: flex;
-            gap: 30px;
-            margin-top: 60px;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 15px 35px;
-            border: 1px solid var(--charcoal);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gold);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .contact-links a:hover::before {
-            left: 0;
-        }
-
-        .contact-links a:hover {
-            color: white;
-            border-color: var(--gold);
-        }
-
         footer {
             margin-top: 150px;
             padding-top: 50px;
@@ -250,10 +209,7 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Zhi Wang</h1>
-            <p class="tagline">Builder <span class="accent-dot"></span> Researcher <span class="accent-dot"></span> Writer</p>
-        </header>
+        
 
         <nav>
             <ul>
@@ -267,20 +223,14 @@
             </ul>
         </nav>
 
-        <section id="contact">
-            <h2>Let's Connect</h2>
+        <section id="blog">
+            <h2>Blog</h2>
             <p class="intro">
-                I'm always interested in collaborating on meaningful projects, speaking at events,
-                or simply having thoughtful conversations about [your interests].
+                Essays and notes on [topics], [research], and the craft of building.
             </p>
             <p>
-                If you'd like to reach out, email is best. I'm also active on GitHub and LinkedIn.
+                Add a list of recent posts, categories, or an archive link when ready.
             </p>
-            <div class="contact-links">
-                <a href="mailto:your.email@example.com">Email</a>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/zwang89" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            </div>
         </section>
 
         <footer>
