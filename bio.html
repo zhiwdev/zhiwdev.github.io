@@ -8,7 +8,7 @@
         content="Professional bio of Zhi Wang — data scientist and analytics leader in pharma with a Ph.D. in Public Health from Indiana University Bloomington.">
     <title>Bio • Zhi Wang</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- Google tag (gtag.js) -->
@@ -23,7 +23,6 @@
 
 <body>
     <div class="container">
-
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -39,40 +38,33 @@
         <section id="bio">
             <h2>Professional Bio</h2>
 
-            <!-- Bio content with photo side by side -->
-            <div class="bio-layout" style="display: flex; gap: 50px; align-items: flex-start; flex-wrap: wrap;">
-                <!-- Bio Text -->
-                <div style="flex: 1; min-width: 300px;">
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 25px; line-height: 2;">
+            <div class="bio-layout">
+                <div class="bio-text">
+                    <p>
                         I am a data science and analytics professional with a focus on applied analytics, leadership,
                         and product-oriented problem solving in the pharmaceutical industry. I currently work at Merck
                         within the Digital Human Health organization and previously worked at Eli Lilly in the Advanced
                         Analytics &amp; Data Science (AADS) organization.
                     </p>
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 25px; line-height: 2;">
+                    <p>
                         My interests center on building analytics that are practical, scalable, and decision-focused. I
                         am particularly drawn to analytics leadership, applied AI, and turning ideas into real
                         products—whether through internal platforms, experimental projects, or side-hustle applications.
                     </p>
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 25px; line-height: 2;">
+                    <p>
                         I hold a Ph.D. in Public Health and an M.S. in Data Science from Indiana University Bloomington.
                         This website is a place where I share perspectives on analytics and leadership, document
                         projects I'm building, and explore ideas outside of my day-to-day role.
                     </p>
                 </div>
 
-                <!-- Profile Photo -->
-                <div class="bio-photo"
-                    style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid var(--charcoal); box-shadow: 0 8px 30px rgba(0,0,0,0.1); flex-shrink: 0; position: relative; background-color: #5a5a5a;">
-                    <img src="profile-photo.jpg" alt="Zhi Wang"
-                        style="position: absolute; width: 116%; height: auto; left: 50%; top: 50%; transform: translate(-50%, -50%) translate(-18px, 6px);">
+                <div class="bio-photo-wrapper">
+                    <img src="profile-photo.jpg" alt="Zhi Wang">
                 </div>
             </div>
 
-            <h3
-                style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--charcoal); margin-top: 60px; margin-bottom: 20px;">
-                Disclaimer</h3>
-            <p style="font-style: italic; color: var(--text-secondary);">
+            <h3 class="disclaimer-heading">Disclaimer</h3>
+            <p class="disclaimer-text">
                 All views and content shared on this website are my own and do not represent the views, positions, or
                 policies of my employer or any affiliated organizations.
             </p>
