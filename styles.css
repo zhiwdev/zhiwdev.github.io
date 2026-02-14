@@ -1,5 +1,5 @@
 /* ============================================
-   Zhi Wang – Modern Dark Professional Theme
+   Zhi Wang – Modern Light Professional Theme
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
@@ -11,20 +11,23 @@
 }
 
 :root {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #111111;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-hover: rgba(255, 255, 255, 0.06);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(255, 255, 255, 0.15);
-    --gold: #d4af37;
-    --gold-light: #e8c94a;
-    --sage: #8a9a7b;
-    --text-primary: #e8e8e8;
-    --text-secondary: #888888;
-    --text-muted: #555555;
-    --gradient-gold: linear-gradient(135deg, var(--gold), var(--sage));
-    --gradient-glow: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(138, 154, 123, 0.08));
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fc;
+    --bg-card: rgba(255, 255, 255, 0.7);
+    --bg-card-hover: rgba(255, 255, 255, 0.95);
+    --border-subtle: rgba(0, 0, 0, 0.06);
+    --border-hover: rgba(0, 0, 0, 0.12);
+    --accent: #4f6df5;
+    --accent-light: #7b93f8;
+    --accent-warm: #e8945a;
+    --text-primary: #1a1a2e;
+    --text-secondary: #5a607f;
+    --text-muted: #9ca3af;
+    --gradient-accent: linear-gradient(135deg, #4f6df5, #7c5bf5);
+    --gradient-warm: linear-gradient(135deg, #4f6df5, #e8945a);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
 html {
@@ -33,7 +36,7 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
     color: var(--text-primary);
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
@@ -51,7 +54,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(10, 10, 10, 0.75);
+    background: rgba(248, 249, 252, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-subtle);
@@ -95,7 +98,7 @@ nav a::after {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--gradient-gold);
+    background: var(--gradient-accent);
     transition: width 0.3s ease;
     border-radius: 1px;
 }
@@ -109,7 +112,7 @@ nav a:hover::after {
 }
 
 nav a.active {
-    color: var(--gold);
+    color: var(--accent);
 }
 
 nav a.active::after {
@@ -160,7 +163,7 @@ h1 {
     display: inline-block;
     width: 5px;
     height: 5px;
-    background: var(--gold);
+    background: var(--accent);
     border-radius: 50%;
     margin: 0 12px;
     vertical-align: middle;
@@ -213,7 +216,7 @@ h2::after {
     left: 0;
     width: 60px;
     height: 2px;
-    background: var(--gradient-gold);
+    background: var(--gradient-accent);
     border-radius: 1px;
 }
 
@@ -239,6 +242,7 @@ p {
     border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 40px;
+    box-shadow: var(--shadow-sm);
     transition: all 0.4s ease;
 }
 
@@ -246,7 +250,7 @@ p {
     background: var(--bg-card-hover);
     border-color: var(--border-hover);
     transform: translateY(-2px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-lg);
 }
 
 /* ---- Bio Layout ---- */
@@ -274,17 +278,17 @@ p {
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--border-subtle);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 80px rgba(212, 175, 55, 0.06);
+    border: 3px solid var(--bg-primary);
+    box-shadow: var(--shadow-lg), 0 0 0 1px var(--border-subtle);
     flex-shrink: 0;
     position: relative;
-    background-color: #2a2a2a;
+    background-color: #e8e8e8;
     transition: all 0.4s ease;
 }
 
 .bio-photo-wrapper:hover {
-    border-color: var(--gold);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 80px rgba(212, 175, 55, 0.15);
+    box-shadow: var(--shadow-lg), 0 0 0 2px var(--accent);
+    transform: scale(1.02);
 }
 
 .bio-photo-wrapper img {
@@ -299,7 +303,7 @@ p {
 /* ---- Contact Links ---- */
 .contact-links {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     margin-top: 50px;
     flex-wrap: wrap;
 }
@@ -313,18 +317,17 @@ p {
     text-transform: uppercase;
     padding: 14px 32px;
     border: 1px solid var(--border-subtle);
-    border-radius: 8px;
+    border-radius: 10px;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-sm);
 }
 
 .contact-links a:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
-    transform: translateY(-1px);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: var(--shadow-md), 0 0 0 1px var(--accent);
+    transform: translateY(-2px);
 }
 
 /* ---- Publications Table ---- */
@@ -332,22 +335,27 @@ p {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .papers-table th,
 .papers-table td {
     text-align: left;
-    padding: 20px 12px;
+    padding: 20px 16px;
     border-bottom: 1px solid var(--border-subtle);
     vertical-align: top;
 }
 
 .papers-table th {
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--text-muted);
+    background: var(--bg-secondary);
 }
 
 .papers-table td {
@@ -361,19 +369,22 @@ p {
 }
 
 .papers-table tbody tr:hover {
-    background: var(--bg-card);
+    background: var(--bg-secondary);
+}
+
+.papers-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .papers-table a {
-    color: var(--gold);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 500;
-    letter-spacing: 0.5px;
     transition: color 0.2s ease;
 }
 
 .papers-table a:hover {
-    color: var(--gold-light);
+    color: var(--accent-light);
 }
 
 .papers-table strong {
@@ -419,7 +430,7 @@ footer p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 8rem;
     font-weight: 300;
-    background: var(--gradient-gold);
+    background: var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -448,17 +459,19 @@ footer p {
     text-transform: uppercase;
     padding: 14px 32px;
     border: 1px solid var(--border-subtle);
-    border-radius: 8px;
+    border-radius: 10px;
     transition: all 0.3s ease;
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-sm);
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
 .error-link:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
-    transform: translateY(-1px);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: var(--shadow-md), 0 0 0 1px var(--accent);
+    transform: translateY(-2px);
 }
 
 /* ---- Responsive ---- */
@@ -503,18 +516,4 @@ footer p {
     .error-code {
         font-size: 5rem;
     }
-}
-
-/* ---- Subtle Grain Texture (optional enhancement) ---- */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    z-index: 9999;
-    opacity: 0.4;
 }
