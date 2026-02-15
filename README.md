@@ -12,9 +12,8 @@ The website is structured into the following main sections:
 
 - **[Home](index.html)**: The landing page with a brief introduction.
 - **[Bio](bio.html)**: My background, experience, and professional journey.
-- **[Apps](apps/)**: A showcase of applications and software projects I've built.
 - **[Blog](blog/)**: Articles and essays on various topics.
-- **[Fun](fun/)**: Personal interests and side projects.
+- **[Apps](apps/)**: A showcase of applications and software projects I've built.
 - **[Publications](publications.html)**: A list of my research papers and academic contributions.
 
 ## 🛠️ Technology
@@ -37,12 +36,10 @@ This site is built with a focus on simplicity, performance, and clean design.
 ├── 404.html            # Custom error page
 ├── styles.css          # Shared stylesheet
 ├── profile-photo.jpg   # Profile photo
-├── apps/
-│   └── index.html      # Apps showcase
 ├── blog/
 │   └── index.html      # Blog (coming soon)
-└── fun/
-    └── index.html      # Fun projects (coming soon)
+└── apps/
+    └── index.html      # Apps showcase
 ```
 
 ## 🚀 Local Development
