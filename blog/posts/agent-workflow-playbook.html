@@ -48,23 +48,59 @@
                         behind it — from an empty repo to release prep in a single day of building. Here's the
                         playbook, with Readyday as the worked example.</p>
 
+                    <div class="flow">
+                        <div class="flow-step">
+                            <div class="flow-num">01</div>
+                            <div class="flow-name">Environment</div>
+                            <div class="flow-artifacts">Git · <code>CLAUDE.md</code></div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">02</div>
+                            <div class="flow-name">Product design</div>
+                            <div class="flow-artifacts"><code>PLAN.md</code> · cut line · <code>V2.md</code></div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">03</div>
+                            <div class="flow-name">Technical design</div>
+                            <div class="flow-artifacts"><code>ALGORITHM.md</code> · <code>DESIGN-SYSTEM.md</code> · <code>IMPLEMENTATION.md</code></div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">04</div>
+                            <div class="flow-name">Implementation</div>
+                            <div class="flow-artifacts">Code · tests · <code>test.sh</code></div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">05</div>
+                            <div class="flow-name">Human verification</div>
+                            <div class="flow-artifacts">The skeptic's gate</div>
+                        </div>
+                    </div>
+
                     <h3>Step 1 — Environment setup: Git + CLAUDE.md</h3>
                     <p>Before the agent writes a single line of code, I set up two things: a Git repository, so
                         every change is tracked and reversible, and a <strong>CLAUDE.md</strong> file at the repo
                         root — the agent's standing instructions. Readyday's entire file is two bullets:</p>
-                    <p><em>After every completed change, you must create a corresponding Git commit. After every
-                            change, you must write or update the relevant tests, and all tests must pass before
-                            delivering the work.</em></p>
+                    <blockquote class="pull-quote">
+                        After every completed change, you must create a corresponding Git commit. After every
+                        change, you must write or update the relevant tests, and all tests must pass before
+                        delivering the work.
+                    </blockquote>
                     <p>That's the whole constitution. It's the highest-leverage artifact in the workflow: written
                         once, it governed every one of the dozens of commits that followed. Prompts are per-task;
                         this file is permanent.</p>
 
                     <h3>Step 2 — Product design: the proposal is the gate</h3>
                     <p>Next the agent wrote <strong>docs/PLAN.md</strong>: research on the problem space, the
-                        target user, and — most importantly — the cut line. For Readyday the scope decision was one
-                        sentence: <em>v1 is the glance — one number, one word, one sentence, plus three lines saying
-                            why.</em> Everything else was parked in <strong>V2.md</strong>, explicitly deferred,
+                        target user, and — most importantly — the cut line. For Readyday the scope decision was
+                        one sentence. Everything else was parked in <strong>V2.md</strong>, explicitly deferred,
                         not forgotten.</p>
+                    <blockquote class="pull-quote">
+                        v1 is the glance — one number, one word, one sentence, plus three lines saying why.
+                    </blockquote>
                     <p>The proposal is a decision tool, not a deliverable. Naming, bundle IDs, the competitive
                         research — all settled here, before any engineering. If the glance hadn't convinced me,
                         the idea would have died here, cheaply, instead of after a week of code.</p>
@@ -73,9 +109,12 @@
                     <p>Only after the product direction was settled did the technical design happen, split across
                         three documents with a strict division of labor. <strong>ALGORITHM.md</strong> is the
                         maths. <strong>DESIGN-SYSTEM.md</strong> is the look — six visual laws, each traced to a
-                        line in the algorithm. <strong>IMPLEMENTATION.md</strong> is the how, and it says so
-                        itself: <em>PLAN.md is the what and why, ALGORITHM.md is the maths, DESIGN-SYSTEM.md is the
-                            look. Where this file and those disagree, they win and this one is wrong.</em></p>
+                        line in the algorithm. <strong>IMPLEMENTATION.md</strong> is the how, and it states its own
+                        precedence rule:</p>
+                    <blockquote class="pull-quote">
+                        PLAN.md is the what and why, ALGORITHM.md is the maths, DESIGN-SYSTEM.md is the look.
+                        Where this file and those disagree, they win and this one is wrong.
+                    </blockquote>
                     <p>That precedence rule is the whole point of this stage. I reviewed the design myself — it's
                         the cheapest place in the process to catch mistakes. A wrong call here multiplies into days
                         of wrong code later. My rule: if I can't explain the technical proposal back in my own
@@ -95,11 +134,26 @@
                     <p>The last gate is always human, and it's always me. The agent is optimistic by nature — it
                         wants to tell you it's done. My job is to be the skeptic it can't be. On Readyday that
                         meant real product calls: making morning the default theme, drawing the MVP1 cut-line
-                        table, and deferring all of StoreKit with explicit reasoning — <em>you cannot learn what
-                            people will pay for before you know whether they open it daily.</em></p>
+                        table, and deferring all of StoreKit with explicit reasoning:</p>
+                    <blockquote class="pull-quote">
+                        You cannot learn what people will pay for before you know whether they open it daily.
+                    </blockquote>
                     <p>Nothing merges, deploys, or ships without this. I check three things: does it do what the
                         proposal promised, would I ship it to a real user, and did every stage of this workflow
                         actually happen.</p>
+
+                    <h3>The day, hour by hour</h3>
+                    <p>Readyday went from empty repo to release prep in a single day. The commit log is the
+                        workflow in motion — design, build, test, verify, repeat:</p>
+                    <ul class="timeline">
+                        <li><span class="t-time">00:18</span>First code lands: the trend chart</li>
+                        <li><span class="t-time">11:24</span>Implementation plan written; ReadinessCore built — 28 tests green</li>
+                        <li><span class="t-time">15:22</span>Today screen built; the two defects it exposed fixed on the spot</li>
+                        <li><span class="t-time">15:54</span>Real HealthKit data wired up; the Today screen goes live</li>
+                        <li><span class="t-time">16:10</span>Watch app and complication added</li>
+                        <li><span class="t-time">18:56</span>Day detail — the last MVP1 screen</li>
+                        <li><span class="t-time">23:00</span>Release prep; the release build exposes issues, fixed in the same commit</li>
+                    </ul>
 
                     <h3>The part the diagram doesn't show: the loop</h3>
                     <p>On paper the workflow is a straight line. In practice it loops. Readyday's final commit of
@@ -108,6 +162,14 @@
                         work goes back: usually to implementation, sometimes to technical design if the approach
                         was wrong, occasionally to product design if the plan lied. The stages don't change; the
                         path through them just isn't always forward.</p>
+                    <h3>The checklist</h3>
+                    <ul class="checklist">
+                        <li><strong>Environment:</strong> repo initialized, agent constitution (<code>CLAUDE.md</code> / <code>AGENTS.md</code>) written</li>
+                        <li><strong>Product design:</strong> proposal written, cut line drawn, the rest parked in v2</li>
+                        <li><strong>Technical design:</strong> what / why / how separated, precedence rules stated, reviewed by a human</li>
+                        <li><strong>Implementation:</strong> small commits, tests with every change, suite green before handoff</li>
+                        <li><strong>Human verification:</strong> does it match the proposal, would you ship it, did every stage happen</li>
+                    </ul>
                     <p>That's the whole playbook: set up the environment once, design twice (product, then
                         technical), let the agent build and test itself, and keep the final judgment human. It
                         won't make the agent brilliant, but it will keep it honest — and honest is what ships. In
