@@ -42,59 +42,76 @@
                     <p>AI agents are fast but chaotic. Left alone, an agent will happily build the wrong thing at
                         impressive speed. So I run every agent-built project through the same five-stage workflow:
                         environment setup, product design, technical design, implementation, and human verification.
-                        Each stage is a gate — nothing moves forward until the gate is passed. Here is exactly how I
-                        do it.</p>
+                        Each stage is a gate — nothing moves forward until the gate is passed.</p>
+                    <p>This isn't theory. I used exactly this workflow to design and build <strong>Readyday</strong>
+                        — a daily body-readiness score for iPhone and Apple Watch, one number with the reasons
+                        behind it — from an empty repo to release prep in a single day of building. Here's the
+                        playbook, with Readyday as the worked example.</p>
 
-                    <h3>Step 1 — Environment setup: Git + AGENTS.md</h3>
-                    <p>Before the agent writes a single line of code, I set up two things. First, a Git repository,
-                        so every change is tracked and reversible. Second, an <strong>AGENTS.md</strong> file at the
-                        repo root — the agent's standing instructions. Mine covers project conventions, coding
-                        standards, and most importantly the definition of done: what "finished" means, including my
-                        rule that nothing is announced as done until tests pass and the live result is verified.</p>
-                    <p>This file is the highest-leverage artifact in the whole workflow. You write it once, and it
-                        governs every session after that. Prompts are per-task; AGENTS.md is the constitution.</p>
+                    <h3>Step 1 — Environment setup: Git + CLAUDE.md</h3>
+                    <p>Before the agent writes a single line of code, I set up two things: a Git repository, so
+                        every change is tracked and reversible, and a <strong>CLAUDE.md</strong> file at the repo
+                        root — the agent's standing instructions. Readyday's entire file is two bullets:</p>
+                    <p><em>After every completed change, you must create a corresponding Git commit. After every
+                            change, you must write or update the relevant tests, and all tests must pass before
+                            delivering the work.</em></p>
+                    <p>That's the whole constitution. It's the highest-leverage artifact in the workflow: written
+                        once, it governed every one of the dozens of commits that followed. Prompts are per-task;
+                        this file is permanent.</p>
 
-                    <h3>Step 2 — Product design: proposal, then demo</h3>
-                    <p>Next I have the agent write a <strong>product proposal</strong>: the problem, the target
-                        user, what is in scope, and — just as important — what is explicitly out of scope. Then,
-                        before any real engineering, it builds a <strong>demo</strong>: something I can click
-                        through and react to.</p>
-                    <p>The demo is a decision tool, not a deliverable. If it doesn't convince me, the idea dies
-                        here, cheaply. Killing a bad idea at the demo stage costs an hour; killing it after
-                        implementation costs a week.</p>
+                    <h3>Step 2 — Product design: the proposal is the gate</h3>
+                    <p>Next the agent wrote <strong>docs/PLAN.md</strong>: research on the problem space, the
+                        target user, and — most importantly — the cut line. For Readyday the scope decision was one
+                        sentence: <em>v1 is the glance — one number, one word, one sentence, plus three lines saying
+                            why.</em> Everything else was parked in <strong>V2.md</strong>, explicitly deferred,
+                        not forgotten.</p>
+                    <p>The proposal is a decision tool, not a deliverable. Naming, bundle IDs, the competitive
+                        research — all settled here, before any engineering. If the glance hadn't convinced me,
+                        the idea would have died here, cheaply, instead of after a week of code.</p>
 
-                    <h3>Step 3 — Technical design: the technical proposal</h3>
-                    <p>Only after the product direction is settled does the agent write a <strong>technical
-                            proposal</strong>: architecture, data model, key dependencies, and the main trade-offs.
-                        I review this myself, carefully. This is the cheapest place in the entire process to catch
-                        mistakes — a wrong call here multiplies into days of wrong code later.</p>
-                    <p>My rule: if I can't explain the technical proposal back in my own words, it's not ready for
-                        implementation.</p>
+                    <h3>Step 3 — Technical design: what, why, how — separated</h3>
+                    <p>Only after the product direction was settled did the technical design happen, split across
+                        three documents with a strict division of labor. <strong>ALGORITHM.md</strong> is the
+                        maths. <strong>DESIGN-SYSTEM.md</strong> is the look — six visual laws, each traced to a
+                        line in the algorithm. <strong>IMPLEMENTATION.md</strong> is the how, and it says so
+                        itself: <em>PLAN.md is the what and why, ALGORITHM.md is the maths, DESIGN-SYSTEM.md is the
+                            look. Where this file and those disagree, they win and this one is wrong.</em></p>
+                    <p>That precedence rule is the whole point of this stage. I reviewed the design myself — it's
+                        the cheapest place in the process to catch mistakes. A wrong call here multiplies into days
+                        of wrong code later. My rule: if I can't explain the technical proposal back in my own
+                        words, it's not ready for implementation.</p>
 
-                    <h3>Step 4 — Implementation: code, then AI self-test</h3>
-                    <p>Now the agent writes code, in small increments with commits along the way so nothing is ever
-                        more than a step or two from a working state. When it believes the work is done, it runs an
-                        <strong>AI self-test</strong>: the test suite, plus a check against the acceptance criteria
-                        from the product and technical proposals.</p>
-                    <p>The self-test is a real gate, not theater. If tests fail or the build doesn't match the
-                        proposal, the agent fixes it and re-tests — I don't get involved until it passes its own
-                        checks.</p>
+                    <h3>Step 4 — Implementation: small commits, tested relentlessly</h3>
+                    <p>Then the agent built: four Swift packages (scoring engine, HealthKit data, UI kit, local
+                        store), the iPhone app, the watch app, widgets, and complications — in small increments,
+                        one commit per change, exactly as CLAUDE.md demanded. The commit log tells the story:
+                        <em>Add the implementation plan and ReadinessCore: 28 tests green</em>,
+                        <em>Build the Today screen, and fix the two defects it exposed</em>.</p>
+                    <p>Tests weren't an afterthought; the scoring engine has persona-based calibration tests and
+                        the data layer has fixture-backed tests. The self-test gate held: nothing was delivered to
+                        me until the suite was green.</p>
 
-                    <h3>Step 5 — Human verification: the final gate</h3>
-                    <p>The last gate is always human, and it's always me. I check three things: does it do what the
-                        product proposal promised, would I ship it to a real user, and did every step of this
-                        workflow actually happen. Nothing merges, deploys, or ships without this.</p>
-                    <p>The agent is optimistic by nature — it wants to tell you it's done. My job at this stage is
-                        to be the skeptic it can't be.</p>
+                    <h3>Step 5 — Human verification: the skeptic's job</h3>
+                    <p>The last gate is always human, and it's always me. The agent is optimistic by nature — it
+                        wants to tell you it's done. My job is to be the skeptic it can't be. On Readyday that
+                        meant real product calls: making morning the default theme, drawing the MVP1 cut-line
+                        table, and deferring all of StoreKit with explicit reasoning — <em>you cannot learn what
+                            people will pay for before you know whether they open it daily.</em></p>
+                    <p>Nothing merges, deploys, or ships without this. I check three things: does it do what the
+                        proposal promised, would I ship it to a real user, and did every stage of this workflow
+                        actually happen.</p>
 
                     <h3>The part the diagram doesn't show: the loop</h3>
-                    <p>On paper the workflow is a straight line. In practice it loops. When human verification
-                        finds a problem, work goes back — usually to implementation, sometimes to technical design
-                        if the approach was wrong, occasionally all the way back to product design if the demo
-                        lied. The stages don't change; the path through them just isn't always forward.</p>
+                    <p>On paper the workflow is a straight line. In practice it loops. Readyday's final commit of
+                        the day was <em>Prepare the release, and fix what a Release build exposed</em> —
+                        verification feeding straight back into implementation. When human review finds a problem,
+                        work goes back: usually to implementation, sometimes to technical design if the approach
+                        was wrong, occasionally to product design if the plan lied. The stages don't change; the
+                        path through them just isn't always forward.</p>
                     <p>That's the whole playbook: set up the environment once, design twice (product, then
                         technical), let the agent build and test itself, and keep the final judgment human. It
-                        won't make the agent brilliant, but it will keep it honest — and honest is what ships.</p>
+                        won't make the agent brilliant, but it will keep it honest — and honest is what ships. In
+                        Readyday's case, honest shipped in a day.</p>
                 </div>
             </section>
         </main>
