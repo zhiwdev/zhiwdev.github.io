@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+  HOW TO PUBLISH A POST
+  1. Copy this file to posts/<slug>.html (e.g. posts/merck-to-sanofi.html).
+  2. Replace [TITLE], [DATE], [TAG], and [TAG-SLUG] below.
+     [TAG] is the display name: Pharma, Career, AI Learning, or Products.
+     [TAG-SLUG] is the filter key: pharma, career, ai, or products.
+  3. Write the body: one <p> per paragraph. Use <h3> for sub-headings if needed.
+  4. Add a row to the post list in blog/index.html (see the comment there).
+  5. Commit and push.
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[TITLE] — a note by Zhi Wang.">
+    <title>[TITLE] • Zhi Wang</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLRJQ6YV95"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XLRJQ6YV95');
+    </script>
+</head>
+
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="../../index.html">ZHI WANG</a>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../bio.html">Bio</a></li>
+                    <li><a href="../../blog/" class="active">Blog</a></li>
+                    <li><a href="../../apps/">Apps &amp; Open Source</a></li>
+                    <li><a href="../../publications.html">Publications</a></li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section">
+                <div class="sec-label"><a class="sec-back" href="../#[TAG-SLUG]">[TAG]</a></div>
+                <div>
+                    <h2>[TITLE]</h2>
+                    <p class="post-meta">[DATE]</p>
+                    <p>First paragraph goes here.</p>
+                    <p>Second paragraph goes here.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Zhi Wang • Designed with intention and care</p>
+        </footer>
+    </div>
+    <script src="../../site-config.js"></script>
+</body>
+
+</html>

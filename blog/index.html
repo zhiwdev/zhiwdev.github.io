@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Blog by Zhi Wang — essays and notes on data science, AI, analytics leadership, and building products.">
+        content="Blog by Zhi Wang — notes on pharma, career development, AI learning, and building products.">
     <title>Blog • Zhi Wang</title>
     <link rel="stylesheet" href="../styles.css">
     <!-- Google tag (gtag.js) -->
@@ -38,13 +38,60 @@
             <section id="blog" class="section">
                 <div class="sec-label">01 / Blog</div>
                 <div>
-                    <h2>Blog</h2>
+                    <h2>Notes</h2>
                     <p class="intro">
-                        Essays and notes on data science, AI, analytics leadership, and the craft of building.
+                        Occasional writing on the things I spend my days on: the pharma industry, building a
+                        career, learning AI in public, and making products at Overdue Studio.
                     </p>
-                    <p>
-                        Coming soon.
-                    </p>
+                </div>
+            </section>
+
+            <section id="sections" class="section">
+                <div class="sec-label">02 / Sections</div>
+                <div>
+                    <div class="index-row">
+                        <span class="tag">Pharma</span>
+                        <p>Industry and domain thinking — epidemiology, real-world evidence, forecasting, and
+                            market dynamics.</p>
+                    </div>
+                    <div class="index-row">
+                        <span class="tag">Career</span>
+                        <p>Career development — leadership, growing teams, and navigating the industry from IC
+                            to director.</p>
+                    </div>
+                    <div class="index-row">
+                        <span class="tag">AI Learning</span>
+                        <p>Notes on AI tools and techniques, learned in public and applied to real work.</p>
+                    </div>
+                    <div class="index-row">
+                        <span class="tag">Products</span>
+                        <p>The making of Overdue Studio — decisions, pricing experiments, and distribution
+                            struggles.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="all-posts" class="section">
+                <div class="sec-label">03 / All posts</div>
+                <div>
+                    <div class="tag-filter" role="group" aria-label="Filter posts by section">
+                        <button data-filter="all" class="active">All</button>
+                        <button data-filter="pharma">Pharma</button>
+                        <button data-filter="career">Career</button>
+                        <button data-filter="ai">AI Learning</button>
+                        <button data-filter="products">Products</button>
+                    </div>
+                    <ul class="post-list">
+                        <!-- New posts go here, newest first. Row format:
+                        <li class="post-row" data-tag="pharma">
+                            <span class="post-date">2026-09-21</span>
+                            <a class="post-title" href="posts/my-post.html">My Post Title</a>
+                            <span class="tag">Pharma</span>
+                        </li>
+                        data-tag must be one of: pharma, career, ai, products.
+                        -->
+                    </ul>
+                    <p class="empty-note">No posts yet — the first ones are on the way.</p>
                 </div>
             </section>
         </main>
@@ -54,6 +101,32 @@
         </footer>
     </div>
     <script src="../site-config.js"></script>
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.tag-filter button');
+            var rows = document.querySelectorAll('.post-row');
+            var empty = document.querySelector('.empty-note');
+            if (empty && rows.length) empty.style.display = 'none';
+
+            function apply(tag) {
+                buttons.forEach(function (b) {
+                    b.classList.toggle('active', b.dataset.filter === tag);
+                });
+                rows.forEach(function (r) {
+                    r.style.display = (tag === 'all' || r.dataset.tag === tag) ? '' : 'none';
+                });
+                if (('#' + tag) !== location.hash) history.replaceState(null, '', '#' + tag);
+            }
+
+            buttons.forEach(function (b) {
+                b.addEventListener('click', function () { apply(b.dataset.filter); });
+            });
+
+            var initial = (location.hash || '#all').slice(1);
+            var valid = Array.prototype.some.call(buttons, function (b) { return b.dataset.filter === initial; });
+            apply(valid ? initial : 'all');
+        })();
+    </script>
 </body>
 
 </html>
