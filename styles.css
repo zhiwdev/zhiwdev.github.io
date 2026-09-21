@@ -510,3 +510,30 @@ footer p {
         gap: 6px;
     }
 }
+
+/* ---- Hero photo ---- */
+.hero-row {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.hero-photo {
+    width: clamp(140px, 20vw, 230px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 1px solid var(--ink);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+    }
+
+    .hero-photo {
+        width: 140px;
+    }
+}
