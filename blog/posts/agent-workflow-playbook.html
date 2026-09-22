@@ -43,10 +43,12 @@
                         impressive speed. So I run every agent-built project through the same five-stage workflow:
                         environment setup, product design, technical design, implementation, and human verification.
                         Each stage is a gate — nothing moves forward until the gate is passed.</p>
-                    <p>This isn't theory. I used exactly this workflow to design and build <strong>Readyday</strong>
-                        — a daily body-readiness score for iPhone and Apple Watch, one number with the reasons
-                        behind it — from an empty repo to release prep in a single day of building. Here's the
-                        playbook, with Readyday as the worked example.</p>
+                    <p>This is the story of that workflow in action. Last week I built <strong>Readyday</strong> —
+                        a daily body-readiness score for iPhone and Apple Watch, one number with the reasons
+                        behind it — entirely in side-hustle hours: my commute, early mornings, and evenings
+                        around my day job. Research on Thursday, design on Sunday afternoon, then build sessions
+                        stolen between Sunday evening and Tuesday morning. Empty repo to release prep, no workday
+                        hours touched. Here's how each stage carried its weight.</p>
 
                     <div class="flow">
                         <div class="flow-step">
@@ -80,55 +82,57 @@
                         </div>
                     </div>
 
-                    <h3>Step 1 — Environment setup: Git + CLAUDE.md</h3>
-                    <p>Before the agent writes a single line of code, I set up two things: a Git repository, so
-                        every change is tracked and reversible, and a <strong>CLAUDE.md</strong> file at the repo
-                        root — the agent's standing instructions. Readyday's entire file is two bullets:</p>
+                    <h3>Step 1 — Environment setup: the constitution comes first</h3>
+                    <p>Thursday evening, two commits, and the repo existed. The first added the research notes.
+                        The second added <strong>CLAUDE.md</strong> — the agent's standing instructions. The
+                        entire file is two bullets:</p>
                     <blockquote class="pull-quote">
                         After every completed change, you must create a corresponding Git commit. After every
                         change, you must write or update the relevant tests, and all tests must pass before
                         delivering the work.
                     </blockquote>
-                    <p>That's the whole constitution. It's the highest-leverage artifact in the workflow: written
-                        once, it governed every one of the dozens of commits that followed. Prompts are per-task;
-                        this file is permanent.</p>
+                    <p>Written once, it governed every commit that followed — including all the ones I never
+                        watched happen, because I was on a train. That's the point: the constitution works when
+                        I'm not there.</p>
 
-                    <h3>Step 2 — Product design: the proposal is the gate</h3>
-                    <p>Next the agent wrote <strong>docs/PLAN.md</strong>: research on the problem space, the
-                        target user, and — most importantly — the cut line. For Readyday the scope decision was
-                        one sentence. Everything else was parked in <strong>V2.md</strong>, explicitly deferred,
-                        not forgotten.</p>
+                    <h3>Step 2 — Product design: Sunday afternoon, the cut line</h3>
+                    <p>Sunday afternoon I sat down and did the product thinking myself, with the agent as a
+                        scribe. The project got renamed from Headroom to Readyday, the bundle ID got registered,
+                        and <strong>docs/PLAN.md</strong> took shape: the readiness algorithm spec, the band
+                        names (Rest / Easy / Train / Push), the business model (freemium with a 7-day history
+                        wall) — and the cut line, one sentence that decided the whole release:</p>
                     <blockquote class="pull-quote">
                         v1 is the glance — one number, one word, one sentence, plus three lines saying why.
                     </blockquote>
-                    <p>The proposal is a decision tool, not a deliverable. Naming, bundle IDs, the competitive
-                        research — all settled here, before any engineering. If the glance hadn't convinced me,
-                        the idea would have died here, cheaply, instead of after a week of code.</p>
+                    <p>Everything else went into <strong>V2.md</strong>: explicitly deferred, not forgotten. The
+                        proposal is a decision tool, not a deliverable. If the glance hadn't convinced me, the
+                        idea would have died on Sunday afternoon, cheaply, instead of after a week of code.</p>
 
-                    <h3>Step 3 — Technical design: what, why, how — separated</h3>
-                    <p>Only after the product direction was settled did the technical design happen, split across
-                        three documents with a strict division of labor. <strong>ALGORITHM.md</strong> is the
-                        maths. <strong>DESIGN-SYSTEM.md</strong> is the look — six visual laws, each traced to a
-                        line in the algorithm. <strong>IMPLEMENTATION.md</strong> is the how, and it states its own
-                        precedence rule:</p>
+                    <h3>Step 3 — Technical design: Sunday evening, what vs. why vs. how</h3>
+                    <p>Sunday evening the technical design landed, split across three documents with a strict
+                        division of labor. <strong>ALGORITHM.md</strong> is the maths. <strong>DESIGN-SYSTEM.md</strong>
+                        is the look — six visual laws, each traced to a line in the algorithm, with design-law
+                        tests to enforce them. <strong>IMPLEMENTATION.md</strong> is the how, and it states its
+                        own precedence rule:</p>
                     <blockquote class="pull-quote">
                         PLAN.md is the what and why, ALGORITHM.md is the maths, DESIGN-SYSTEM.md is the look.
                         Where this file and those disagree, they win and this one is wrong.
                     </blockquote>
-                    <p>That precedence rule is the whole point of this stage. I reviewed the design myself — it's
-                        the cheapest place in the process to catch mistakes. A wrong call here multiplies into days
-                        of wrong code later. My rule: if I can't explain the technical proposal back in my own
-                        words, it's not ready for implementation.</p>
+                    <p>I reviewed it myself before bed — the cheapest place in the process to catch mistakes. A
+                        wrong call here multiplies into days of wrong code. My rule: if I can't explain the
+                        technical proposal back in my own words, it's not ready for implementation.</p>
 
-                    <h3>Step 4 — Implementation: small commits, tested relentlessly</h3>
-                    <p>Then the agent built: four Swift packages (scoring engine, HealthKit data, UI kit, local
-                        store), the iPhone app, the watch app, widgets, and complications — in small increments,
-                        one commit per change, exactly as CLAUDE.md demanded. The commit log tells the story:
-                        <em>Add the implementation plan and ReadinessCore: 28 tests green</em>,
-                        <em>Build the Today screen, and fix the two defects it exposed</em>.</p>
+                    <h3>Step 4 — Implementation: the agent builds while I commute</h3>
+                    <p>This is where the workflow paid for itself. Monday morning I opened the laptop before
+                        leaving, gave the agent the implementation plan, and it built while I commuted: the
+                        scoring engine <strong>ReadinessCore</strong> with 28 tests green, then the Today screen,
+                        real HealthKit data, the App Group store, the Home Screen widget, the watch app and its
+                        complication. Small increments, one commit per change, exactly as the constitution
+                        demanded — <em>Build the Today screen, and fix the two defects it exposed</em>.</p>
                     <p>Tests weren't an afterthought; the scoring engine has persona-based calibration tests and
-                        the data layer has fixture-backed tests. The self-test gate held: nothing was delivered to
-                        me until the suite was green.</p>
+                        the data layer has fixture-backed tests. The self-test gate held: nothing was delivered
+                        to me until the suite was green. I checked in between sessions; the docs told me exactly
+                        where things stood. No status meetings with my own agent.</p>
 
                     <h3>Step 5 — Human verification: the skeptic's job</h3>
                     <p>The last gate is always human, and it's always me. The agent is optimistic by nature — it
@@ -142,26 +146,35 @@
                         proposal promised, would I ship it to a real user, and did every stage of this workflow
                         actually happen.</p>
 
-                    <h3>The day, hour by hour</h3>
-                    <p>Readyday went from empty repo to release prep in a single day. The commit log is the
-                        workflow in motion — design, build, test, verify, repeat:</p>
+                    <h3>The build, session by session</h3>
+                    <p>No clock times — this wasn't a workday. It was stolen hours, and the workflow is what
+                        made stolen hours enough:</p>
                     <ul class="timeline">
-                        <li><span class="t-time">00:18</span>First code lands: the trend chart</li>
-                        <li><span class="t-time">11:24</span>Implementation plan written; ReadinessCore built — 28 tests green</li>
-                        <li><span class="t-time">15:22</span>Today screen built; the two defects it exposed fixed on the spot</li>
-                        <li><span class="t-time">15:54</span>Real HealthKit data wired up; the Today screen goes live</li>
-                        <li><span class="t-time">16:10</span>Watch app and complication added</li>
-                        <li><span class="t-time">18:56</span>Day detail — the last MVP1 screen</li>
-                        <li><span class="t-time">23:00</span>Release prep; the release build exposes issues, fixed in the same commit</li>
+                        <li><span class="t-time">Thu evening</span>Research notes and the constitution — the repo is born</li>
+                        <li><span class="t-time">Sun afternoon</span>Renamed Headroom → Readyday; algorithm spec; scope cut to the glance</li>
+                        <li><span class="t-time">Sun evening</span>Design system with six laws; first UI commits</li>
+                        <li><span class="t-time">Mon early morning</span>Polish pass before leaving for the office</li>
+                        <li><span class="t-time">Mon commute</span>Implementation plan; scoring engine — 28 tests green</li>
+                        <li><span class="t-time">Mon midday</span>Today screen, live health data, watch app and complication</li>
+                        <li><span class="t-time">Mon evening</span>Release prep; the release build exposes issues, fixed in the same session</li>
+                        <li><span class="t-time">Tue early morning</span>Final fixes, README — ready for TestFlight</li>
                     </ul>
 
                     <h3>The part the diagram doesn't show: the loop</h3>
-                    <p>On paper the workflow is a straight line. In practice it loops. Readyday's final commit of
-                        the day was <em>Prepare the release, and fix what a Release build exposed</em> —
+                    <p>On paper the workflow is a straight line. In practice it loops. Readyday's Monday-evening
+                        session was <em>Prepare the release, and fix what a Release build exposed</em> —
                         verification feeding straight back into implementation. When human review finds a problem,
                         work goes back: usually to implementation, sometimes to technical design if the approach
                         was wrong, occasionally to product design if the plan lied. The stages don't change; the
                         path through them just isn't always forward.</p>
+
+                    <h3>Why this works for a side hustle</h3>
+                    <p>Here's the thing I didn't expect: the staged documents turned out to be a handoff system.
+                        When your build time comes in 40-minute commute slices, you can't afford to re-brief
+                        your agent every session. I never did. The plan said what to build, the design docs said
+                        how, the commit log said what was already done. Each session started with the agent
+                        reading the docs and continuing — no context lost between my train rides.</p>
+
                     <h3>The checklist</h3>
                     <ul class="checklist">
                         <li><strong>Environment:</strong> repo initialized, agent constitution (<code>CLAUDE.md</code> / <code>AGENTS.md</code>) written</li>
@@ -172,8 +185,8 @@
                     </ul>
                     <p>That's the whole playbook: set up the environment once, design twice (product, then
                         technical), let the agent build and test itself, and keep the final judgment human. It
-                        won't make the agent brilliant, but it will keep it honest — and honest is what ships. In
-                        Readyday's case, honest shipped in a day.</p>
+                        won't make the agent brilliant, but it will keep it honest — and honest is what ships.
+                        In Readyday's case, honest shipped in stolen hours.</p>
                 </div>
             </section>
         </main>
