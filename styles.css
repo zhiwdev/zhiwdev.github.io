@@ -685,3 +685,23 @@ footer p {
         font-size: 17px;
     }
 }
+
+.pull-quote ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pull-quote li {
+    position: relative;
+    padding-left: 24px;
+    margin: 10px 0;
+}
+
+.pull-quote li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+}
