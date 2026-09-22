@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My Agent Workflow: A Practical Playbook — a note by Zhi Wang.">
-    <title>My Agent Workflow: A Practical Playbook • Zhi Wang</title>
+    <meta name="description" content="A five-stage, document-driven workflow for building with an AI agent, shown on one real project — and why it transfers to analytics teams. By Zhi Wang.">
+    <title>Plans Before Prompts: A Case Study in Building With an AI Agent • Zhi Wang</title>
     <link rel="stylesheet" href="../../styles.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLRJQ6YV95"></script>
@@ -37,18 +37,17 @@
             <section class="section">
                 <div class="sec-label"><a class="sec-back" href="../#ai">AI Learning</a></div>
                 <div>
-                    <h2>My Agent Workflow: A Practical Playbook</h2>
+                    <h2>Plans Before Prompts: A Case Study in Building With an AI Agent</h2>
                     <p class="post-meta">2026-09-21</p>
-                    <p>AI agents are fast but chaotic. Left alone, an agent will happily build the wrong thing at
-                        impressive speed. So I run every agent-built project through the same five-stage workflow:
-                        environment setup, product design, technical design, implementation, and human verification.
-                        Each stage is a gate — nothing moves forward until the gate is passed.</p>
-                    <p>This is the story of that workflow in action. Last week I built <strong>Readyday</strong> —
-                        a daily body-readiness score for iPhone and Apple Watch, one number with the reasons
-                        behind it — entirely in side-hustle hours: my commute, early mornings, and evenings
-                        around my day job. Research on Thursday, design on Sunday afternoon, then build sessions
-                        stolen between Sunday evening and Tuesday morning. Empty repo to release prep, no workday
-                        hours touched. Here's how each stage carried its weight.</p>
+                    <p>I went into this project expecting the hard part of working with an AI agent to be
+                        the code. It wasn't. The hard part was continuity: keeping the work coherent when it
+                        happens in short, scattered sessions, and neither I nor the agent remembers the last one.</p>
+                    <p>What solved it was dull: written documents, produced in a fixed order, each one a gate
+                        the next stage couldn't pass without. Over five days of personal time, that sequence
+                        took <strong>ReadyDay</strong>, a small wellness app for iPhone and Apple Watch that
+                        shows one daily readiness number and the reasons behind it, from an empty repository
+                        to a TestFlight-ready build. This post walks through the five stages, what each one
+                        produced, and where the approach falls short.</p>
 
                     <div class="flow">
                         <div class="flow-step">
@@ -82,10 +81,10 @@
                         </div>
                     </div>
 
-                    <h3>Step 1 — Environment setup: the constitution comes first</h3>
-                    <p>Thursday evening, two commits, and the repo existed. The first added the research notes.
-                        The second added <strong>CLAUDE.md</strong> — the agent's standing instructions. The
-                        entire file is two bullets:</p>
+                    <h3>Step 1 — Environment: two rules, written once</h3>
+                    <p>The repository started with two commits. The first added my research notes. The second
+                        added <strong>CLAUDE.md</strong>, the file of standing instructions the agent reads at
+                        the start of every session. The whole file is two rules:</p>
                     <blockquote class="pull-quote">
                         <ul>
                             <li>After every completed change, you must create a corresponding Git commit.</li>
@@ -93,102 +92,120 @@
                                 pass before delivering the work.</li>
                         </ul>
                     </blockquote>
-                    <p>Written once, it governed every commit that followed — including all the ones I never
-                        watched happen, because I was on a train. That's the point: the constitution works when
-                        I'm not there.</p>
+                    <p>Both rules are about process, not product. They make every change traceable and
+                        testable. They don't stop the agent from building the wrong thing. That job belongs to
+                        the next two stages.</p>
 
-                    <h3>Step 2 — Product design: Sunday afternoon, the cut line</h3>
-                    <p>Sunday afternoon I sat down and did the product thinking myself, with the agent as a
-                        scribe. The project got renamed from Headroom to Readyday, the bundle ID got registered,
-                        and <strong>docs/PLAN.md</strong> took shape: the readiness algorithm spec, the band
-                        names (Rest / Easy / Train / Push), the business model (freemium with a 7-day history
-                        wall) — and the cut line, one sentence that decided the whole release:</p>
+                    <h3>Step 2 — Product design: draw the cut line</h3>
+                    <p>I did the product thinking myself and used the agent as a scribe. The output was
+                        <strong>PLAN.md</strong>: the problem, the readiness bands (Rest / Easy / Train / Push),
+                        the business model, and one sentence that scoped the first release:</p>
                     <blockquote class="pull-quote">
                         v1 is the glance — one number, one word, one sentence, plus three lines saying why.
                     </blockquote>
-                    <p>Everything else went into <strong>V2.md</strong>: explicitly deferred, not forgotten. The
-                        proposal is a decision tool, not a deliverable. If the glance hadn't convinced me, the
-                        idea would have died on Sunday afternoon, cheaply, instead of after a week of code.</p>
+                    <p>Everything else went into <strong>V2.md</strong>, deferred on purpose rather than lost.
+                        A plan like this is a decision tool. If the one-screen version hadn't been convincing
+                        on paper, the idea would have died in an afternoon instead of after a week of code.</p>
 
-                    <h3>Step 3 — Technical design: Sunday evening, what vs. why vs. how</h3>
-                    <p>Sunday evening the technical design landed, split across three documents with a strict
-                        division of labor. <strong>ALGORITHM.md</strong> is the maths. <strong>DESIGN-SYSTEM.md</strong>
-                        is the look — six visual laws, each traced to a line in the algorithm, with design-law
-                        tests to enforce them. <strong>IMPLEMENTATION.md</strong> is the how, and it states its
-                        own precedence rule:</p>
+                    <h3>Step 3 — Technical design: separate the what, the math, and the how</h3>
+                    <p>The technical design was split across three documents, each with one job.
+                        <strong>ALGORITHM.md</strong> holds the math. <strong>DESIGN-SYSTEM.md</strong> holds
+                        six visual rules, each traced back to a line in the algorithm and enforced by tests.
+                        <strong>IMPLEMENTATION.md</strong> holds the build plan and says which document wins
+                        when they conflict:</p>
                     <blockquote class="pull-quote">
                         PLAN.md is the what and why, ALGORITHM.md is the maths, DESIGN-SYSTEM.md is the look.
                         Where this file and those disagree, they win and this one is wrong.
                     </blockquote>
-                    <p>I reviewed it myself before bed — the cheapest place in the process to catch mistakes. A
-                        wrong call here multiplies into days of wrong code. My rule: if I can't explain the
-                        technical proposal back in my own words, it's not ready for implementation.</p>
+                    <p>That precedence rule matters more than it looks. An agent that finds two documents
+                        disagreeing will pick one. Without the rule, you don't control which. I reviewed the whole
+                        design myself before any implementation began, and my test was simple: if I couldn't
+                        explain the approach back in my own words, it wasn't ready to build.</p>
 
-                    <h3>Step 4 — Implementation: the agent builds while I commute</h3>
-                    <p>This is where the workflow paid for itself. Monday morning I opened the laptop before
-                        leaving, gave the agent the implementation plan, and it built while I commuted: the
-                        scoring engine <strong>ReadinessCore</strong> with 28 tests green, then the Today screen,
-                        real HealthKit data, the App Group store, the Home Screen widget, the watch app and its
-                        complication. Small increments, one commit per change, exactly as the constitution
-                        demanded — <em>Build the Today screen, and fix the two defects it exposed</em>.</p>
-                    <p>Tests weren't an afterthought; the scoring engine has persona-based calibration tests and
-                        the data layer has fixture-backed tests. The self-test gate held: nothing was delivered
-                        to me until the suite was green. I checked in between sessions; the docs told me exactly
-                        where things stood. No status meetings with my own agent.</p>
+                    <h3>Step 4 — Implementation: small steps, tested every time</h3>
+                    <p>With the plan in hand, the agent built in small increments, one commit per change:
+                        first the scoring engine, <strong>ReadinessCore</strong>, with 28 passing tests; then
+                        the main screen, live Apple Health data, a Home Screen widget, and the watch app. The
+                        scoring engine has persona-based calibration tests, and the data layer has
+                        fixture-backed tests. Nothing came back to me until the whole suite passed.</p>
+                    <p>A passing suite is necessary but not sufficient, though. It proves the code does what
+                        the tests say. It doesn't prove the tests say the right thing, and an agent writing
+                        both the code and its tests shares the same blind spots across them. That's why the
+                        last gate is not automated.</p>
 
-                    <h3>Step 5 — Human verification: the skeptic's job</h3>
-                    <p>The last gate is always human, and it's always me. The agent is optimistic by nature — it
-                        wants to tell you it's done. My job is to be the skeptic it can't be. On Readyday that
-                        meant real product calls: making morning the default theme, drawing the MVP1 cut-line
-                        table, and deferring all of StoreKit with explicit reasoning:</p>
+                    <h3>Step 5 — Human verification: judgment stays with a person</h3>
+                    <p>Agents are optimistic reporters. They tell you the work is done. My job at the end
+                        is to be the skeptic. On ReadyDay that meant product calls no test could make: which
+                        theme ships as the default, where exactly the first-release cut falls, and deferring
+                        in-app purchases entirely, for this reason:</p>
                     <blockquote class="pull-quote">
                         You cannot learn what people will pay for before you know whether they open it daily.
                     </blockquote>
-                    <p>Nothing merges, deploys, or ships without this. I check three things: does it do what the
-                        proposal promised, would I ship it to a real user, and did every stage of this workflow
-                        actually happen.</p>
+                    <p>My review asks three questions. Does the work do what the plan promised? Would I put it
+                        in front of a real user? Did every stage actually happen, or did one get skipped
+                        quietly?</p>
 
-                    <h3>The build, session by session</h3>
-                    <p>No clock times — this wasn't a workday. It was stolen hours, and the workflow is what
-                        made stolen hours enough:</p>
+                    <h3>The build, day by day</h3>
                     <ul class="timeline">
-                        <li><span class="t-time">Thu evening</span>Research notes and the constitution — the repo is born</li>
-                        <li><span class="t-time">Sun afternoon</span>Renamed Headroom → Readyday; algorithm spec; scope cut to the glance</li>
-                        <li><span class="t-time">Sun evening</span>Design system with six laws; first UI commits</li>
-                        <li><span class="t-time">Mon early morning</span>Polish pass before leaving for the office</li>
-                        <li><span class="t-time">Mon commute</span>Implementation plan; scoring engine — 28 tests green</li>
-                        <li><span class="t-time">Mon midday</span>Today screen, live health data, watch app and complication</li>
-                        <li><span class="t-time">Mon evening</span>Release prep; the release build exposes issues, fixed in the same session</li>
-                        <li><span class="t-time">Tue early morning</span>Final fixes, README — ready for TestFlight</li>
+                        <li><span class="t-time">Day 1</span>Research notes and standing instructions; repository created</li>
+                        <li><span class="t-time">Day 4</span>Product plan and cut line; algorithm spec; design system with six rules</li>
+                        <li><span class="t-time">Day 5</span>Implementation plan; scoring engine with 28 passing tests; main screen, health data, widget, watch app</li>
+                        <li><span class="t-time">Day 5–6</span>Release build exposes issues, fixed and re-verified; README; ready for TestFlight</li>
                     </ul>
 
-                    <h3>The part the diagram doesn't show: the loop</h3>
-                    <p>On paper the workflow is a straight line. In practice it loops. Readyday's Monday-evening
-                        session was <em>Prepare the release, and fix what a Release build exposed</em> —
-                        verification feeding straight back into implementation. When human review finds a problem,
-                        work goes back: usually to implementation, sometimes to technical design if the approach
-                        was wrong, occasionally to product design if the plan lied. The stages don't change; the
-                        path through them just isn't always forward.</p>
+                    <h3>What I didn't expect: the documents are a handoff system</h3>
+                    <p>This was the real finding. When work happens in short sessions, the expensive part is
+                        rebuilding context at the start of each one. I never re-briefed the agent. The plan
+                        said what to build, the design documents said how, and the commit history said what
+                        was already done. Each session started with the agent reading those files and carrying
+                        on from where the last one stopped.</p>
+                    <p>The same artifacts that let an agent resume would let a colleague resume. That's the
+                        part I think carries over beyond side projects.</p>
 
-                    <h3>Why this works for a side hustle</h3>
-                    <p>Here's the thing I didn't expect: the staged documents turned out to be a handoff system.
-                        When your build time comes in 40-minute commute slices, you can't afford to re-brief
-                        your agent every session. I never did. The plan said what to build, the design docs said
-                        how, the commit log said what was already done. Each session started with the agent
-                        reading the docs and continuing — no context lost between my train rides.</p>
+                    <h3>The workflow loops</h3>
+                    <p>On paper the five stages run in a straight line. In practice they don't. ReadyDay's
+                        release build surfaced problems that sent work back into implementation. When review
+                        finds a problem, work goes back: usually to implementation, sometimes to technical
+                        design if the approach was wrong, and occasionally to product design if the plan
+                        itself was wrong. The stages stay fixed. The path through them doesn't.</p>
+
+                    <h3>Why I think this transfers to analytics teams</h3>
+                    <p>My background is epidemiology and data science, and the workflow above is mostly old
+                        analytics discipline applied to a new kind of collaborator:</p>
+                    <p><strong>Plan before you touch the data.</strong> A written analysis plan settles
+                        the question and the success criteria before results can reshape them. A product
+                        plan does the same job for an agent.</p>
+                    <p><strong>Traceability by default.</strong> One commit per change, each with its
+                        tests, means anyone can rebuild what changed and why. That's what makes work
+                        reviewable.</p>
+                    <p><strong>Accountability stays human.</strong> An agent can produce a forecast, a
+                        model, or a dashboard. It can't own the decision that rests on it. Someone with a
+                        name still has to sign off.</p>
+                    <p><strong>Documentation is onboarding.</strong> Files that let an agent pick up
+                        where it left off will do the same for a new analyst.</p>
+
+                    <h3>What this doesn't prove</h3>
+                    <p>This is one project, built by one person, from scratch, at small scale. There's no
+                        controlled comparison. I can't show that the same app wouldn't have shipped without the
+                        process. Team settings add constraints this project never faced: shared data access,
+                        validation requirements, formal review. So read this as a worked example, not a proven
+                        method. I'll keep testing it and report back where it breaks.</p>
 
                     <h3>The checklist</h3>
                     <ul class="checklist">
-                        <li><strong>Environment:</strong> repo initialized, agent constitution (<code>CLAUDE.md</code> / <code>AGENTS.md</code>) written</li>
-                        <li><strong>Product design:</strong> proposal written, cut line drawn, the rest parked in v2</li>
-                        <li><strong>Technical design:</strong> what / why / how separated, precedence rules stated, reviewed by a human</li>
-                        <li><strong>Implementation:</strong> small commits, tests with every change, suite green before handoff</li>
-                        <li><strong>Human verification:</strong> does it match the proposal, would you ship it, did every stage happen</li>
+                        <li><strong>Environment:</strong> repository initialized, standing instructions (<code>CLAUDE.md</code> / <code>AGENTS.md</code>) written</li>
+                        <li><strong>Product design:</strong> plan written, cut line drawn, everything else parked for v2</li>
+                        <li><strong>Technical design:</strong> what / math / how separated, precedence rules stated, reviewed by a person</li>
+                        <li><strong>Implementation:</strong> small commits, tests with every change, full suite passing before handoff</li>
+                        <li><strong>Human verification:</strong> matches the plan, fit for a real user, no stage skipped</li>
+                        <li><strong>Loop:</strong> when review fails, send the work back to the stage where the error started</li>
                     </ul>
-                    <p>That's the whole playbook: set up the environment once, design twice (product, then
-                        technical), let the agent build and test itself, and keep the final judgment human. It
-                        won't make the agent brilliant, but it will keep it honest — and honest is what ships.
-                        In Readyday's case, honest shipped in stolen hours.</p>
+                    <p>None of this makes the agent smarter. It makes the agent's work reviewable, resumable,
+                        and accountable, and those three properties matter more than raw speed.</p>
+
+                    <p class="disclaimer-text">ReadyDay is a personal project, built on my own time and
+                        equipment. It's a general wellness app: it doesn't diagnose, treat, or give medical
+                        advice. All views here are my own and don't represent my employer.</p>
                 </div>
             </section>
         </main>
