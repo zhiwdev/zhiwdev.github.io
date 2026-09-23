@@ -1,6 +1,10 @@
 (function () {
     window.SITE_CONFIG = Object.assign({}, window.SITE_CONFIG, {
-        overdueStudioUrl: 'https://overduestudio.pages.dev/'
+        overdueStudioUrl: 'https://overduestudio.pages.dev/',
+        // Newsletter: set your Substack publication subdomain here to activate
+        // the subscribe form, e.g. 'zhiwang' for zhiwang.substack.com.
+        // Leave empty to show the "launching soon" note instead.
+        substackSubdomain: ''
     });
 
     function formatLinkText(url, mode) {
@@ -28,9 +32,33 @@
         });
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', applySiteLinks);
-    } else {
+    function renderSubscribeEmbed() {
+        var mount = document.getElementById('subscribe-embed');
+        if (!mount) {
+            return;
+        }
+        var sub = window.SITE_CONFIG.substackSubdomain;
+        if (!sub) {
+            return; // not configured yet — the "launching soon" note stays
+        }
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://' + sub + '.substack.com/embed';
+        iframe.title = 'Subscribe to the newsletter';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('scrolling', 'no');
+        iframe.className = 'subscribe-iframe';
+        mount.innerHTML = '';
+        mount.appendChild(iframe);
+    }
+
+    function init() {
         applySiteLinks();
+        renderSubscribeEmbed();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
 })();
