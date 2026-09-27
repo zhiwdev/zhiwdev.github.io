@@ -705,3 +705,25 @@ footer p {
     color: var(--red);
     font-weight: 700;
 }
+
+/* ---- Newsletter subscribe ---- */
+.subscribe-pitch {
+    margin: 16px 0 24px;
+    max-width: 560px;
+}
+
+.subscribe-soon {
+    color: var(--gray);
+    border: 1px solid var(--hairline);
+    padding: 24px;
+    max-width: 480px;
+}
+
+.subscribe-iframe {
+    width: 480px;
+    max-width: 100%;
+    height: 320px;
+    border: 1px solid var(--ink);
+    background: #fff;
+    display: block;
+}
