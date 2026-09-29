@@ -13,7 +13,7 @@ Blog conventions (tags, index rows, template) are in `blog/README.md`.
 4. New posts start unlisted: `<p class="post-meta">Draft</p>`, `<meta name="robots" content="noindex">`,
    and no row in `blog/index.html` until Zhi approves.
 5. Visuals reuse the post components in `styles.css` (`.flow`, `.pull-quote`, `.timeline`,
-   `.checklist`, `.compare`, `.layers`, `.tuesday`). Check desktop and 390px widths for
+   `.checklist`, `.compare`, `.layers`, `.tuesday`, `.template`). Check desktop and 390px widths for
    horizontal scroll before committing.
 
 ## Publishing

@@ -874,3 +874,21 @@ footer p {
         gap: 6px;
     }
 }
+
+/* ---- Copyable template block ---- */
+.template {
+    border: 1px solid var(--ink);
+    border-left: 4px solid var(--red);
+    margin: 28px 0 32px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    background: #fafafa;
+}
+
+.template pre {
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
