@@ -45,21 +45,20 @@
                     <p class="post-meta">Draft</p>
                     <blockquote class="pull-quote">An agent is only as good as what your team remembers.</blockquote>
 
-                    <p>Last Tuesday I was preparing for a hard conversation. A decision I'd made months earlier
-                        was being second-guessed, and I needed the reasoning, not just the conclusion. So I asked
-                        my agent. It came back with the reasoning, because the reasoning was in my notes, linked
-                        to the meeting it came from. Then it did something better. It noticed that two of my notes
-                        disagreed, and asked me which one was right.</p>
-                    <p>That's my personal setup. Everything I read, hear, and decide goes into Obsidian as plain
-                        markdown, and an agent reads and writes that layer with me, filling gaps and keeping it
+                    <p>My personal notes live in Obsidian as plain markdown: what I read, what I learn, what I
+                        decide and why. An agent reads and writes that layer with me, filling gaps and keeping it
                         organized.</p>
+                    <p>The payoff shows up when I need the reasoning behind an old decision, not just the
+                        conclusion. I ask the agent, and it comes back with the reasoning, because the reasoning
+                        is in my notes, linked to where it came from. Sometimes it does something better. It
+                        notices that two of my notes disagree, and asks me which one is right.</p>
                     <p>The question I keep coming back to is what this looks like for a team. Picture asking your
                         team's agent why a pilot got killed last quarter. It can't tell you. The model is fine.
-                        The reason lives in someone's head, or in a chat thread from August that nobody can find.</p>
+                        The reason lives in someone's head, or in a chat thread from months ago that nobody can find.</p>
                     <p>The team has no memory.</p>
 
                     <h3>The context foundation</h3>
-                    <p>In my experience, most teams aren't AI-ready, and most don't know it. Their institutional
+                    <p>Most teams aren't AI-ready yet, and many don't know it. Their institutional
                         knowledge (why decisions were made, how the work actually gets done, what was tried and
                         dropped) is scattered across teams, pods, inboxes, and people's heads. Put an agent on top
                         of that and it fails for lack of context.</p>
@@ -193,7 +192,9 @@
                                 <p>Guardrails come before a single transcript lands. The layer has to respect the
                                     trust boundaries the organization already has, so set up permissions first and
                                     capture second. An agent with total recall is also an agent with total gossip.
-                                    Decide what it may never see before you feed it anything.</p>
+                                    Decide what it may never see before you feed it anything. In a regulated
+                                    company that also means consent to record, retention schedules, and legal
+                                    holds apply to the layer just as they do to the source.</p>
                                 <p>Then run ETL for context. Extract the raw material (recordings, threads, decks),
                                     transform it (transcribe, summarize, reduce it to decisions and reasons), and
                                     load it as markdown linked back to its source.</p>
@@ -233,7 +234,7 @@
                         audits, curation, and dispute escalation are all work someone has to do. The labor
                         doesn't go away; it changes kind. Reviewing a draft is much cheaper than writing from
                         scratch, and a lot of that review already happens informally today, every time someone
-                        says "ask Sarah."</p>
+                        says "ask the person who was there."</p>
                     <p>The rubber-stamp worry is real, too. Approvals nobody reads are theater. That's what the
                         sampling audits are for. You don't check every publish. You check enough that the agent
                         and the people both know someone is looking.</p>
@@ -251,8 +252,10 @@
                         <li><span class="t-time">Week 3</span>Let evidence do the convincing. My bet is that the
                             first time it answers something nobody could find, the holdouts come around. Start the
                             byproduct loop: the agent drafts notes from transcripts, people review.</li>
-                        <li><span class="t-time">Week 4</span>Make it official. Track a few numbers, recognize the
-                            curators, and write the layer into how the team works.</li>
+                        <li><span class="t-time">Week 4</span>Make it official. Track a few numbers (how often the agent
+                            answers with a cited source, how long a "why did we decide X?" question takes, how many
+                            notes the audits find stale), recognize the curators, and write the layer into how the
+                            team works.</li>
                     </ul>
                     <blockquote class="pull-quote">Nobody adopts a system on a promise. They adopt it after it
                         answers a question they couldn't answer themselves.</blockquote>
@@ -263,10 +266,22 @@
                         layer shouldn't pick one. It tags the dispute, cites both sources, and escalates to the
                         document owner. Surface disagreement; never settle it silently.</p>
 
-                    <p class="draft-note">Draft stops here. The original breaks off at "Rollback and an audit
-                        trail…". The rest of this section and the ending still need to be written.</p>
+                    <p class="draft-note">Suggested ending from here down. The original draft stopped at
+                        "Rollback and an audit trail…". Keep, edit, or replace with your own.</p>
+                    <p>Rollback and an audit trail mean every agent edit can be traced to who approved it and
+                        undone if it turns out wrong.</p>
+                    <p><strong>Access.</strong> The layer inherits the permissions of its sources. If you
+                        couldn't open the original email, you can't read its summary either.</p>
+                    <p><strong>Retention.</strong> Notes follow the same retention and legal-hold rules as the
+                        records they came from. When the source is deleted on schedule, its note goes with it.</p>
 
-                    <p class="disclaimer-text">All views here are my own and don't represent my employer.</p>
+                    <h3>The part that matters</h3>
+                    <p>The model is the easy part now. What most teams are missing is memory: a shared, governed
+                        record of why things happened, kept current by the agent and checked by people. Build that,
+                        and your agent has something to work with. Skip it, and you get a brilliant amnesiac.</p>
+
+                    <p class="disclaimer-text">This post describes my personal setup and a general pattern. It
+                        doesn't describe any employer's systems, programs, or plans. All views are my own.</p>
                 </div>
             </section>
         </main>
