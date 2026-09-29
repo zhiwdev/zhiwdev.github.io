@@ -727,3 +727,150 @@ footer p {
     background: #fff;
     display: block;
 }
+
+/* ---- Post visuals: parallel pipelines, comparison, layer stack ---- */
+.flow-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 32px 0 -28px;
+}
+
+.flow-label.accent {
+    color: var(--red);
+}
+
+.flow.tight {
+    margin: 36px 0 24px;
+}
+
+.compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--ink);
+    margin: 32px 0;
+}
+
+.compare-col + .compare-col {
+    border-left: 1px solid var(--ink);
+}
+
+.compare .c-head {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--ink);
+}
+
+.compare .c-head.accent {
+    color: var(--red);
+}
+
+.compare .c-row {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--hairline);
+    line-height: 1.5;
+}
+
+.compare .c-row:last-child {
+    border-bottom: none;
+}
+
+.compare .c-key {
+    display: block;
+    font-size: 12px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.layers {
+    margin: 32px 0;
+    border-top: 1px solid var(--ink);
+}
+
+.layer {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--ink);
+}
+
+.layer-num {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.layer-name {
+    display: block;
+    color: var(--ink);
+    font-size: 20px;
+    letter-spacing: -0.3px;
+    text-transform: none;
+    margin-top: 4px;
+}
+
+.layer p {
+    margin: 0 0 10px;
+}
+
+.layer p:last-child {
+    margin-bottom: 0;
+}
+
+.tuesday {
+    list-style: none;
+    counter-reset: tue;
+    margin: 28px 0 32px;
+    padding: 0;
+}
+
+.tuesday li {
+    counter-increment: tue;
+    position: relative;
+    padding: 14px 0 14px 52px;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.tuesday li::before {
+    content: counter(tue, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    color: var(--red);
+    font-weight: 700;
+}
+
+.draft-note {
+    border: 1px dashed var(--red);
+    color: var(--red);
+    padding: 16px 18px;
+    margin: 32px 0;
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .compare {
+        grid-template-columns: 1fr;
+    }
+
+    .compare-col + .compare-col {
+        border-left: none;
+        border-top: 1px solid var(--ink);
+    }
+
+    .layer {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+}

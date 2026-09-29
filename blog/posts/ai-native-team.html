@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An agent is only as good as what your team remembers. Why teams need a context foundation, the way they once needed a data foundation, and how to start building one.">
+    <meta property="og:title" content="Becoming an AI-Native Team">
+    <meta property="og:description" content="An agent is only as good as what your team remembers. Why teams need a context foundation, and how to start building one.">
+    <meta property="og:type" content="article">
+    <meta name="robots" content="noindex">
+    <title>Becoming an AI-Native Team • Zhi Wang</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLRJQ6YV95"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XLRJQ6YV95');
+    </script>
+</head>
+
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="../../index.html">ZHI WANG</a>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../bio.html">Bio</a></li>
+                    <li><a href="../../blog/" class="active">Blog</a></li>
+                    <li><a href="../../apps/">Apps &amp; Open Source</a></li>
+                    <li><a href="../../publications.html">Publications</a></li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section">
+                <div class="sec-label"><a class="sec-back" href="../#ai">AI Learning</a></div>
+                <div>
+                    <h2>Becoming an AI-Native Team</h2>
+                    <p class="post-meta">Draft</p>
+                    <blockquote class="pull-quote">An agent is only as good as what your team remembers.</blockquote>
+
+                    <p>Last Tuesday I was preparing for a hard conversation. A decision I'd made months earlier
+                        was being second-guessed, and I needed the reasoning, not just the conclusion. So I asked
+                        my agent. It came back with the reasoning, because the reasoning was in my notes, linked
+                        to the meeting it came from. Then it did something better. It noticed that two of my notes
+                        disagreed, and asked me which one was right.</p>
+                    <p>That's my personal setup. Everything I read, hear, and decide goes into Obsidian as plain
+                        markdown, and an agent reads and writes that layer with me, filling gaps and keeping it
+                        organized.</p>
+                    <p>The question I keep coming back to is what this looks like for a team. Picture asking your
+                        team's agent why a pilot got killed last quarter. It can't tell you. The model is fine.
+                        The reason lives in someone's head, or in a chat thread from August that nobody can find.</p>
+                    <p>The team has no memory.</p>
+
+                    <h3>The context foundation</h3>
+                    <p>In my experience, most teams aren't AI-ready, and most don't know it. Their institutional
+                        knowledge (why decisions were made, how the work actually gets done, what was tried and
+                        dropped) is scattered across teams, pods, inboxes, and people's heads. Put an agent on top
+                        of that and it fails for lack of context.</p>
+                    <p>We've learned this lesson once already, with data. Nobody runs shared analytics on CSVs
+                        sitting in someone's inbox, so we built a <strong>data foundation</strong>. Agents need
+                        the same thing one layer up. I call it the <strong>context foundation</strong>.</p>
+
+                    <div class="flow-label">The data foundation we already built</div>
+                    <div class="flow tight">
+                        <div class="flow-step">
+                            <div class="flow-num">01</div>
+                            <div class="flow-name">Raw data</div>
+                            <div class="flow-artifacts">Files, systems, feeds</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">02</div>
+                            <div class="flow-name">ETL pipelines</div>
+                            <div class="flow-artifacts">Clean, join, standardize</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">03</div>
+                            <div class="flow-name">Warehouse / lake</div>
+                            <div class="flow-artifacts">One place to look</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">04</div>
+                            <div class="flow-name">Governed</div>
+                            <div class="flow-artifacts">Access, lineage, quality</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">05</div>
+                            <div class="flow-name">Analytics &amp; ML</div>
+                            <div class="flow-artifacts">Built on top</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-label accent">The context foundation agents need</div>
+                    <div class="flow tight">
+                        <div class="flow-step">
+                            <div class="flow-num">01</div>
+                            <div class="flow-name">Raw context</div>
+                            <div class="flow-artifacts">Meetings, email, decks, chat</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">02</div>
+                            <div class="flow-name">ETL for context</div>
+                            <div class="flow-artifacts">Transcribe, summarize, keep decisions and reasons</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">03</div>
+                            <div class="flow-name">Knowledge layer</div>
+                            <div class="flow-artifacts">Markdown, linked to source</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">04</div>
+                            <div class="flow-name">Governed</div>
+                            <div class="flow-artifacts">Permissions, trust tiers</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">05</div>
+                            <div class="flow-name">Agents</div>
+                            <div class="flow-artifacts">Built on top</div>
+                        </div>
+                    </div>
+
+                    <p>Same shape, same lesson. It's also a different thing from your data catalog. A catalog
+                        tells you what the data <em>means</em>. The context foundation tells you <em>why</em> a
+                        decision was made and <em>how</em> the work gets done. Documenting that is as important as
+                        unifying the database.</p>
+                    <blockquote class="pull-quote">An agent with perfect data and no context is a brilliant
+                        amnesiac.</blockquote>
+                    <p>One limit, because it matters. Some fragmentation is on purpose. In pharma, the walls
+                        between commercial, medical, and R&amp;D are legal requirements. I'm talking about the
+                        other kind: knowledge that's scattered out of habit.</p>
+                    <p>So what is an AI-native team? My test is what the team does differently on an ordinary
+                        Tuesday:</p>
+                    <ol class="tuesday">
+                        <li>Decisions get written down as markdown by default.</li>
+                        <li>The agent reads the shared layer, and writes to it through approval.</li>
+                        <li>A new hire's first week runs on the same layer the agent reads.</li>
+                    </ol>
+
+                    <h3>Why this time is different</h3>
+                    <blockquote class="pull-quote">"We tried knowledge management. We have the wiki nobody updates
+                        to prove it."</blockquote>
+                    <p>Fair. The sharper version of that objection is that this is documentation hygiene with a
+                        new name. Here's my answer. Hygiene failed because the reader was a person browsing and the
+                        writer was a person typing. Both sides paid a lot and got little back. What's new is the
+                        reader. An agent that retrieves at machine scale changes the return on every document. A
+                        note no person would ever browse is still worth writing if an agent pulls it up again and
+                        again.</p>
+                    <p>The second difference is the one I wrote about in
+                        <a href="agent-workflow-playbook.html">my last post</a>: the agent writes as well as reads.
+                        Markdown is plain text that people and agents can both read and edit, and every change
+                        shows up in a diff. That means upkeep, the thing that killed every wiki, can move to the
+                        agent. It only works with verification, which comes up in the layers below.</p>
+
+                    <div class="compare">
+                        <div class="compare-col">
+                            <div class="c-head">The old wiki</div>
+                            <div class="c-row"><span class="c-key">Written by</span>People, when they remember</div>
+                            <div class="c-row"><span class="c-key">Read by</span>People browsing, rarely</div>
+                            <div class="c-row"><span class="c-key">Upkeep</span>Nobody's job</div>
+                        </div>
+                        <div class="compare-col">
+                            <div class="c-head accent">The AI-native layer</div>
+                            <div class="c-row"><span class="c-key">Written by</span>The agent drafts, people approve</div>
+                            <div class="c-row"><span class="c-key">Read by</span>Agents constantly, people through the agent</div>
+                            <div class="c-row"><span class="c-key">Upkeep</span>The agent flags what's stale</div>
+                        </div>
+                    </div>
+
+                    <h3>The map: three layers</h3>
+                    <p>First, a clarification. This is a retrieval and workflow pattern, not a model-building
+                        project. You don't need an AI team. You need pipes and permissions.</p>
+                    <p>These are layers rather than steps, and real teams will build them in whatever order they
+                        can, with one exception: the guardrails in Layer 1 come before anything else.</p>
+
+                    <div class="layers">
+                        <div class="layer">
+                            <div class="layer-num">Layer 1<span class="layer-name">Capture</span></div>
+                            <div>
+                                <p>Guardrails come before a single transcript lands. The layer has to respect the
+                                    trust boundaries the organization already has, so set up permissions first and
+                                    capture second. An agent with total recall is also an agent with total gossip.
+                                    Decide what it may never see before you feed it anything.</p>
+                                <p>Then run ETL for context. Extract the raw material (recordings, threads, decks),
+                                    transform it (transcribe, summarize, reduce it to decisions and reasons), and
+                                    load it as markdown linked back to its source.</p>
+                            </div>
+                        </div>
+                        <div class="layer">
+                            <div class="layer-num">Layer 2<span class="layer-name">Interchange</span></div>
+                            <div>
+                                <p>Markdown is the common format everything converts into. It has no permissions
+                                    or governance of its own; Layer 1 handles that. The practical rule: all new
+                                    capture goes in as markdown, and the archive stays where it is, readable but no
+                                    longer the source of truth.</p>
+                            </div>
+                        </div>
+                        <div class="layer">
+                            <div class="layer-num">Layer 3<span class="layer-name">Read-write loop</span></div>
+                            <div>
+                                <p>The agent maintains the layer: drafting updates, linking notes, flagging what's
+                                    stale. Trust tiers keep this honest. The agent writes freely to a draft space,
+                                    and anything published to the shared layer needs a person's approval.</p>
+                                <p>Key claims link back to the moment they came from. That gives you
+                                    traceability, though not a guarantee of correctness. What catches errors is
+                                    containment: tiers plus sampling audits, so the agent's mistakes can be found,
+                                    reviewed, and reversed.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Incentives: where every attempt died</h3>
+                    <p>Here's the question no playbook gets to skip: why would anyone write the docs? Every
+                        earlier attempt died right here.</p>
+                    <p>My answer is that nobody should have to write them as a chore. The docs should be a
+                        byproduct. The agent drafts from the transcript and a person gives it a quick review. The
+                        captured path has to be the easiest path, and the work has to be recognized and measured
+                        like any other output.</p>
+                    <p>Let's be honest about the labor bill, because this plan quietly creates one. Sampling
+                        audits, curation, and dispute escalation are all work someone has to do. The labor
+                        doesn't go away; it changes kind. Reviewing a draft is much cheaper than writing from
+                        scratch, and a lot of that review already happens informally today, every time someone
+                        says "ask Sarah."</p>
+                    <p>The rubber-stamp worry is real, too. Approvals nobody reads are theater. That's what the
+                        sampling audits are for. You don't check every publish. You check enough that the agent
+                        and the people both know someone is looking.</p>
+
+                    <p>Here's how I'd start:</p>
+                    <ul class="timeline">
+                        <li><span class="t-time">Before week 1</span>Clear it. Agree with Legal, Privacy, and IT on
+                            what may be captured, who has to consent to recording, and how long records are kept.
+                            In a regulated company this step isn't optional.</li>
+                        <li><span class="t-time">Week 1</span>Capture. Turn on transcription where it's approved and
+                            start archiving threads and decks. Almost no behavior change; the layer grows on its
+                            own.</li>
+                        <li><span class="t-time">Week 2</span>Point the agent at it. Let people ask what was decided
+                            about X and why Y changed. Nothing new to learn, just a new place to ask.</li>
+                        <li><span class="t-time">Week 3</span>Let evidence do the convincing. My bet is that the
+                            first time it answers something nobody could find, the holdouts come around. Start the
+                            byproduct loop: the agent drafts notes from transcripts, people review.</li>
+                        <li><span class="t-time">Week 4</span>Make it official. Track a few numbers, recognize the
+                            curators, and write the layer into how the team works.</li>
+                    </ul>
+                    <blockquote class="pull-quote">Nobody adopts a system on a promise. They adopt it after it
+                        answers a question they couldn't answer themselves.</blockquote>
+
+                    <h3>Making it work at org scale</h3>
+                    <p><strong>Governance.</strong> Who curates? Who owns a conflict? When two accounts of the same
+                        decision collide, and with several people's recollections in the layer they will, the
+                        layer shouldn't pick one. It tags the dispute, cites both sources, and escalates to the
+                        document owner. Surface disagreement; never settle it silently.</p>
+
+                    <p class="draft-note">Draft stops here. The original breaks off at "Rollback and an audit
+                        trail…". The rest of this section and the ending still need to be written.</p>
+
+                    <p class="disclaimer-text">All views here are my own and don't represent my employer.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Zhi Wang • Designed with intention and care</p>
+        </footer>
+    </div>
+    <script src="../../site-config.js"></script>
+</body>
+
+</html>
