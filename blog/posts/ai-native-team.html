@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Every team needs its own context layer, and cross-team work needs a shared one Legal has approved. How to give AI agents a team memory without breaking the walls pharma depends on.">
+    <meta name="description" content="Every team needs its own context layer, and cross-team work needs a shared one cleared by a legal agent that applies Legal's rules. How to give AI agents a team memory without breaking the walls pharma depends on.">
     <meta property="og:title" content="Becoming an AI-Native Team: Every Team Needs Its Own Memory">
-    <meta property="og:description" content="Every team needs its own context layer, and cross-team work needs a shared one Legal has approved.">
+    <meta property="og:description" content="Every team needs its own context layer, and cross-team work needs a shared one cleared by a legal agent that applies Legal's rules.">
     <meta property="og:type" content="article">
     <meta name="robots" content="noindex">
     <title>Becoming an AI-Native Team: Every Team Needs Its Own Memory • Zhi Wang</title>
@@ -43,8 +43,8 @@
                 <div>
                     <h2>Becoming an AI-Native Team: Every Team Needs Its Own Memory</h2>
                     <p class="post-meta">Draft</p>
-                    <blockquote class="pull-quote">Every team needs its own memory, and cross-team work needs one
-                        that Legal has signed off on.</blockquote>
+                    <blockquote class="pull-quote">Every team needs its own memory, and cross-team work needs a shared one that a legal agent
+                        clears.</blockquote>
 
                     <p>My personal notes live in Obsidian as plain markdown: what I read, what I learn, what I
                         decide and why. An agent reads and writes that layer with me, filling gaps and keeping it
@@ -183,8 +183,8 @@
                         shape, especially in pharma. The walls between commercial, medical, and R&amp;D are legal
                         requirements, and one big layer ignores them. An agent with total recall is also an agent
                         with total gossip.</p>
-                    <p>My view: every team gets its own context layer, and cross-team work gets a shared layer
-                        that Legal has approved. The company's part is the set of rules every layer follows.</p>
+                    <p>My view: every team gets its own context layer, and cross-team work gets a shared layer where
+                        a legal agent clears every record against Legal's rules. The company's part is the set of rules every layer follows.</p>
 
                     <div class="layers">
                         <div class="layer">
@@ -204,9 +204,13 @@
                                 <p>Cross-team projects, like a launch that touches commercial, medical, and
                                     market access, need one place where the whole decision lives. Without it,
                                     each team keeps its own slice of the story and nobody sees the full reason.</p>
-                                <p>This layer is legal-approved. Only what's cleared to cross the walls goes in,
-                                    every cross-team decision has a named owner, and Legal signs off on what gets
-                                    shared.</p>
+                                <p>Every record that enters this layer is cleared by a legal agent. Legal writes the
+                                    rules once: which kinds of decisions may cross which walls, and what never
+                                    crosses. The agent checks each record against those rules, clears the routine
+                                    ones right away, and sends anything unclear to a person in Legal. Every
+                                    cross-team decision still has a named owner.</p>
+                                <p>Legal's job shifts from reviewing every record to writing the rules, handling
+                                    what the agent escalates, and sampling what it cleared, so the shared layer stays fast and a person stays in the loop.</p>
                             </div>
                         </div>
                         <div class="layer">
@@ -238,8 +242,8 @@
                         <div class="flow-arrow"><span>→</span></div>
                         <div class="flow-step">
                             <div class="flow-num">03</div>
-                            <div class="flow-name">Legal review</div>
-                            <div class="flow-artifacts">Only for cross-team decisions</div>
+                            <div class="flow-name">Legal agent check</div>
+                            <div class="flow-artifacts">Applies Legal's rules; unclear cases go to a person</div>
                         </div>
                         <div class="flow-arrow"><span>→</span></div>
                         <div class="flow-step">
@@ -301,7 +305,8 @@
 Date:         YYYY-MM-DD
 Status:       draft | approved | superseded by [link]
 Owner:        [name or role]
-Layer:        team | shared (legal-approved)
+Layer:        team | shared
+Cleared by:   legal agent (rule [id]) | Legal, after escalation
 
 ## What we decided
 One or two sentences.
@@ -324,7 +329,8 @@ The reasoning, in plain words.
                         transcript and a person gives it a quick review. The captured path has to be the easiest
                         path, and the work has to be recognized and measured like any other output.</p>
                     <p>This plan does create a labor bill. Someone has to run the sampling audits, curate the
-                        layer, handle disputes, and, for the shared layer, get Legal's sign-off. Reviewing a draft
+                        layer, handle disputes, and, for the shared layer, keep Legal's rules current and answer what the
+                        legal agent escalates. Reviewing a draft
                         is much cheaper than writing from scratch, though, and a lot of that review already happens
                         informally today, every time someone says "ask the person who was there."</p>
                     <p>The rubber-stamp worry is real, too. Approvals nobody reads are theater. The sampling
@@ -350,8 +356,8 @@ The reasoning, in plain words.
                             first time it answers something nobody could find, the holdouts come around. Start the
                             byproduct loop: the agent drafts decision records, people review.</li>
                         <li><span class="t-time">Week 4</span>Make it official. Rerun the ten-decision test, recognize
-                            the curators, and write the layer into how the team works. Then pick the first
-                            cross-team project and set up its shared layer with Legal.</li>
+                            the curators, and write the layer into how the team works. Then pick the first cross-team project, have Legal write its crossing rules, and turn on
+                            the legal agent for its shared layer.</li>
                     </ul>
                     <blockquote class="pull-quote">Nobody adopts a system on a promise. They adopt it after it
                         answers a question they couldn't answer themselves.</blockquote>
@@ -372,8 +378,7 @@ The reasoning, in plain words.
                     <h3>The short version</h3>
                     <p>The model is the easy part now. What most teams are missing is memory: a record of why
                         things happened, kept current by the agent and checked by people. Give every team its own
-                        layer, give cross-team work a shared one that Legal has approved, and hold all of them to
-                        one set of rules. Skip that and you get a brilliant amnesiac.</p>
+                        layer, give cross-team work a shared one that a legal agent clears against Legal's rules, and hold every layer to the same controls. Skip that and you get a brilliant amnesiac.</p>
 
                     <p class="disclaimer-text">This post describes my personal setup and a general pattern. It
                         doesn't describe any employer's systems, programs, or plans. All views are my own.</p>
