@@ -13,8 +13,10 @@ Blog conventions (tags, index rows, template) are in `blog/README.md`.
 4. New posts start unlisted: `<p class="post-meta">Draft</p>`, `<meta name="robots" content="noindex">`,
    and no row in `blog/index.html` until Zhi approves.
 5. Visuals reuse the post components in `styles.css` (`.flow`, `.pull-quote`, `.timeline`,
-   `.checklist`, `.compare`, `.layers`, `.tuesday`, `.template`). Check desktop and 390px widths for
-   horizontal scroll before committing.
+   `.checklist`, `.compare`, `.layers`, `.tuesday`, `.template`, `.series-label`, `.series-nav`). Check
+   desktop and 390px widths for horizontal scroll before committing.
+6. Series posts follow `blog/SERIES.md`: 800 to 1,000 words, one big idea per part, the series
+   label above the title and the parts box at the end. Parked text for future parts lives there.
 
 ## Publishing
 

@@ -41,33 +41,27 @@
             <section class="section">
                 <div class="sec-label"><a class="sec-back" href="../#ai">AI Learning</a></div>
                 <div>
+                    <div class="series-label">Becoming an AI-Native Team · Part 1</div>
                     <h2>Becoming an AI-Native Team: Every Team Needs Its Own Memory</h2>
                     <p class="post-meta">Draft</p>
-                    <blockquote class="pull-quote">Every team needs its own memory, and cross-team work needs a shared one that a legal agent
-                        clears.</blockquote>
+                    <blockquote class="pull-quote">Every team needs its own memory, and cross-team work needs a
+                        shared one that a legal agent clears.</blockquote>
 
                     <p>My personal notes live in Obsidian as plain markdown: what I read, what I learn, what I
-                        decide and why. An agent reads and writes that layer with me, filling gaps and keeping it
-                        organized. It's close to the pattern Andrej Karpathy described as an
-                        <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM wiki</a>:
-                        a markdown knowledge base that an agent keeps current.</p>
-                    <p>The payoff shows up when I need the reasoning behind an old decision, not just the
-                        conclusion. I ask the agent and it comes back with the reasoning, because the reasoning is
-                        in my notes, linked to where it came from. Once in a while it also notices that two of my
-                        notes disagree and asks me which one is right.</p>
-                    <p>That works for one person. The question I keep coming back to is what it looks like for a
-                        team. Picture asking your team's agent why a pilot got killed last quarter. It can't tell
-                        you, and a better model wouldn't help. The reason lives in someone's head, or in a chat
-                        thread from months ago that nobody can find. The team has no memory.</p>
+                        decide and why. An agent reads and writes that layer with me. It's close to what Andrej
+                        Karpathy calls an
+                        <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM wiki</a>,
+                        a markdown knowledge base that an agent keeps current. When I need the reasoning behind an
+                        old decision, I ask, and the agent comes back with it, linked to where it came from.</p>
+                    <p>That works for one person. Now picture asking your team's agent why a pilot got killed
+                        last quarter. It can't tell you, and a better model wouldn't help. The reason lives in
+                        someone's head, or in a chat thread nobody can find. The team has no memory.</p>
 
                     <h3>The context foundation</h3>
-                    <p>Most teams aren't AI-ready yet, and many don't know it. Their institutional knowledge (why
-                        decisions were made, how the work actually gets done, what was tried and dropped) is
-                        scattered across pods, inboxes, and people's heads. Put an agent on top of that and it
-                        fails for lack of context.</p>
-                    <p>We've learned this lesson once already, with data. Nobody runs shared analytics on CSVs
-                        sitting in someone's inbox, so we built a <strong>data foundation</strong>. Agents need
-                        the same thing one layer up. I call it the <strong>context foundation</strong>.</p>
+                    <p>We solved this once already, for data. Nobody runs shared analytics on CSVs sitting in
+                        someone's inbox, so we built a <strong>data foundation</strong>. Agents need the same thing
+                        one layer up, for why decisions were made and how the work gets done. I call it the
+                        <strong>context foundation</strong>.</p>
 
                     <div class="flow-label">The data foundation we already built</div>
                     <div class="flow tight">
@@ -135,33 +129,17 @@
                         </div>
                     </div>
 
-                    <p>The shape matches, but what goes into it is different from your data catalog. A catalog
-                        tells you what the data <em>means</em>. The context foundation tells you <em>why</em> a
-                        decision was made and <em>how</em> the work gets done. Documenting that is as important as
-                        unifying the database.</p>
                     <blockquote class="pull-quote">An agent with perfect data and no context is a brilliant
                         amnesiac.</blockquote>
-                    <p>So what is an AI-native team? My test is what the team does differently on an ordinary
-                        Tuesday:</p>
-                    <ol class="tuesday">
-                        <li>Decisions get written down as markdown by default.</li>
-                        <li>The agent reads the team's layer, and writes to it through approval.</li>
-                        <li>A new hire's first week runs on the same layer the agent reads.</li>
-                    </ol>
 
                     <h3>Why this time is different</h3>
                     <blockquote class="pull-quote">"We tried knowledge management. We have the wiki nobody updates
                         to prove it."</blockquote>
-                    <p>Fair. The sharper version is that this is documentation hygiene with a new name. Hygiene
-                        failed because the reader was a person browsing and the writer was a person typing. Both
-                        sides paid a lot and got little back. What's new is the reader. An agent that retrieves at
-                        machine scale changes the return on every document. A note no person would ever browse is
-                        still worth writing if an agent pulls it up again and again.</p>
-                    <p>The second difference is the one I wrote about in
-                        <a href="agent-workflow-playbook.html">my last post</a>: the agent writes as well as reads.
-                        Markdown is plain text that people and agents can both read and edit, and every change
-                        shows up in a diff. That means upkeep, the thing that killed every wiki, can move to the
-                        agent. It only works with verification, which is built into every layer below.</p>
+                    <p>Fair. Wikis died because people had to write them and people had to browse them, and
+                        neither side got much back. Now the main reader is an agent that pulls up the same note
+                        again and again, so every note is worth more. The agent can also do the upkeep, the thing
+                        that killed every wiki, because markdown is plain text it can read, write, and diff.
+                        People approve; the agent maintains.</p>
 
                     <div class="compare">
                         <div class="compare-col">
@@ -179,53 +157,41 @@
                     </div>
 
                     <h3>A layer for every team</h3>
-                    <p>The obvious move is one context layer for the whole company. I think that's the wrong
-                        shape, especially in pharma. The walls between commercial, medical, and R&amp;D are legal
-                        requirements, and one big layer ignores them. An agent with total recall is also an agent
-                        with total gossip.</p>
-                    <p>My view: every team gets its own context layer, and cross-team work gets a shared layer where
-                        a legal agent clears every record against Legal's rules. The company's part is the set of rules every layer follows.</p>
+                    <p>The obvious move is one context layer for the whole company. In pharma that's the wrong
+                        shape. The walls between commercial, medical, and R&amp;D are legal requirements, and an
+                        agent with total recall is also an agent with total gossip.</p>
+                    <p>My view: every team gets its own layer, cross-team work gets a shared one, and the company
+                        sets the rules they all follow.</p>
 
                     <div class="layers">
                         <div class="layer">
                             <div class="layer-num">Team<span class="layer-name">Team layers</span></div>
                             <div>
-                                <p>Each team owns its layer: its decision records, how its work gets done, what
-                                    it tried and dropped. Only people with a need to know can read it. This is
-                                    where most of the knowledge lives.</p>
-                                <p>Tie each layer to a function, such as forecasting or market access, rather
-                                    than to a box on the org chart. Teams get merged and renamed; the work usually
-                                    continues. Write down who inherits a layer when its team goes away.</p>
+                                <p>Each team owns its decisions and how its work gets done, readable on a
+                                    need-to-know basis. Tie the layer to a function, like forecasting or market
+                                    access, so it survives the next reorg.</p>
                             </div>
                         </div>
                         <div class="layer">
                             <div class="layer-num">Shared<span class="layer-name">Cross-team memory</span></div>
                             <div>
-                                <p>Cross-team projects, like a launch that touches commercial, medical, and
-                                    market access, need one place where the whole decision lives. Without it,
-                                    each team keeps its own slice of the story and nobody sees the full reason.</p>
-                                <p>Every record that enters this layer is cleared by a legal agent. Legal writes the
-                                    rules once: which kinds of decisions may cross which walls, and what never
-                                    crosses. The agent checks each record against those rules, clears the routine
-                                    ones right away, and sends anything unclear to a person in Legal. Every
-                                    cross-team decision still has a named owner.</p>
-                                <p>Legal's job shifts from reviewing every record to writing the rules, handling
-                                    what the agent escalates, and sampling what it cleared, so the shared layer stays fast and a person stays in the loop.</p>
+                                <p>Cross-team projects, like a launch, need one place where the whole decision
+                                    lives. Legal writes the crossing rules once. A legal agent checks every record
+                                    against them, clears the routine ones, and sends anything unclear to a person in
+                                    Legal, who also samples what the agent cleared.</p>
                             </div>
                         </div>
                         <div class="layer">
                             <div class="layer-num">Company<span class="layer-name">Common rules</span></div>
                             <div>
-                                <p>This part is the set of rules every layer follows: one
-                                    decision-record format, the same trust tiers, permissions, audit, retention,
-                                    and legal holds. Legal needs one way to find and preserve records across
-                                    every team layer; separate layers still answer to one set of controls.</p>
+                                <p>One set of controls for every layer: the record format, trust tiers,
+                                    permissions, audit, retention, and legal holds.</p>
                             </div>
                         </div>
                     </div>
 
-                    <p>The agent works with the user's permissions. It reads your team's layer plus whatever
-                        shared records you're cleared for, and nothing else. A decision moves outward in steps:</p>
+                    <p>The agent reads with your permissions: your team's layer, plus whatever shared records you're
+                        cleared for. A decision moves outward in steps:</p>
 
                     <div class="flow tight">
                         <div class="flow-step">
@@ -253,132 +219,28 @@
                         </div>
                     </div>
 
-                    <h3>Inside a team layer</h3>
-                    <p>This is a retrieval and workflow pattern, not a model-building project. You don't need an
-                        AI team. You need pipes and permissions. Each team layer has three parts, and the
-                        guardrails in the first come before anything else.</p>
+                    <h3>Start here: the ten-decision test</h3>
+                    <p>Before you build anything, agree with Legal, Privacy, and IT on what may be captured, and
+                        keep legal, HR, and other sensitive meetings out. Then get a baseline. Pick ten decisions
+                        your team made last quarter, ask your agent (or a new hire) why each one was made, and
+                        count how many answers come back with a source. That's your score.</p>
 
-                    <div class="layers">
-                        <div class="layer">
-                            <div class="layer-num">Part 1<span class="layer-name">Capture</span></div>
-                            <div>
-                                <p>Guardrails come before a single transcript lands. Decide what the agent may
-                                    never see before you feed it anything, and keep legal, HR, and other sensitive
-                                    meetings out by default. In a regulated company, consent to record, retention
-                                    schedules, and legal holds apply to the layer just as they do to the source.</p>
-                                <p>Then run ETL for context. Extract the raw material (recordings, threads, decks),
-                                    transform it (transcribe, summarize, reduce it to decisions and reasons), and
-                                    load it as markdown linked back to its source.</p>
-                            </div>
-                        </div>
-                        <div class="layer">
-                            <div class="layer-num">Part 2<span class="layer-name">Interchange</span></div>
-                            <div>
-                                <p>Markdown is the common format everything converts into. The original records
-                                    stay the evidence. The markdown is the index and the summary, and only
-                                    approved decision records count as the team's answer. An agent's draft never
-                                    feeds the next draft until a person has approved it, so one bad summary can't
-                                    turn into accepted fact.</p>
-                            </div>
-                        </div>
-                        <div class="layer">
-                            <div class="layer-num">Part 3<span class="layer-name">Read-write loop</span></div>
-                            <div>
-                                <p>The agent maintains the layer: drafting updates, linking notes, flagging what's
-                                    stale. It writes freely to a draft space, and anything published needs a
-                                    person's approval. Key claims link back to the moment they came from, which
-                                    gives you traceability, though not a guarantee of correctness. Sampling audits
-                                    catch the rest, so when the agent gets something wrong, someone finds it and
-                                    undoes it.</p>
-                            </div>
-                        </div>
+                    <div class="series-nav">
+                        <div class="s-head">Becoming an AI-Native Team</div>
+                        <ol>
+                            <li class="current"><span class="s-num">Part 1</span><span>Every team needs its own
+                                    memory<span class="s-desc">The design: a layer per team, a shared layer, one set
+                                        of rules</span></span></li>
+                            <li class="upcoming"><span class="s-num">Part 2</span><span>The unit is the
+                                    decision<span class="s-desc">A decision-record template, and why nobody should
+                                        write them by hand</span></span></li>
+                            <li class="upcoming"><span class="s-num">Part 3</span><span>Rolling it out<span
+                                        class="s-desc">The first month, the labor bill, and keeping it honest at
+                                        scale</span></span></li>
+                        </ol>
                     </div>
-
-                    <h3>The unit is the decision</h3>
-                    <p>Software teams solved part of this years ago with architecture decision records: one short
-                        file per decision, kept next to the code. I'd borrow the idea for every team. Each
-                        decision gets one record, in the same format across every layer, so an agent with access
-                        to two layers reads both the same way. Here's the template I'd start with:</p>
-                    <div class="template">
-<pre># Decision: [short title]
-
-Date:         YYYY-MM-DD
-Status:       draft | approved | superseded by [link]
-Owner:        [name or role]
-Layer:        team | shared
-Cleared by:   legal agent (rule [id]) | Legal, after escalation
-
-## What we decided
-One or two sentences.
-
-## Why
-The reasoning, in plain words.
-
-## What we considered and dropped
-- Option, and why not
-
-## Sources
-- [meeting, thread, or deck, with a link to the moment]</pre>
-                    </div>
-
-                    <h3>Incentives: where every attempt died</h3>
-                    <p>Why would anyone write the docs? Every earlier attempt at knowledge management died on
-                        that question.</p>
-                    <p>My answer: nobody should have to write them as a chore. The docs should be a byproduct
-                        of work that's already happening. The agent drafts the decision record from the
-                        transcript and a person gives it a quick review. The captured path has to be the easiest
-                        path, and the work has to be recognized and measured like any other output.</p>
-                    <p>This plan does create a labor bill. Someone has to run the sampling audits, curate the
-                        layer, handle disputes, and, for the shared layer, keep Legal's rules current and answer what the
-                        legal agent escalates. Reviewing a draft
-                        is much cheaper than writing from scratch, though, and a lot of that review already happens
-                        informally today, every time someone says "ask the person who was there."</p>
-                    <p>The rubber-stamp worry is real, too. Approvals nobody reads are theater. The sampling
-                        audits are the answer: check enough publishes that the agent and the people both know
-                        someone is looking.</p>
-
-                    <h3>The ten-decision test</h3>
-                    <p>Before you build anything, get a baseline. Pick ten decisions your team made last quarter.
-                        For each one, ask your agent (or a new hire) why it was made, and count how many answers
-                        come back with a source. That's your score. Run it again after a month.</p>
-
-                    <p>Here's how I'd start:</p>
-                    <ul class="timeline">
-                        <li><span class="t-time">Before week 1</span>Clear it. Agree with Legal, Privacy, and IT on
-                            what may be captured, what stays out, who has to consent to recording, and how long
-                            records are kept. Run the ten-decision test.</li>
-                        <li><span class="t-time">Week 1</span>Capture. Pick one team. Turn on transcription where it's
-                            approved and start archiving threads and decks. Almost no behavior change; the layer
-                            grows on its own.</li>
-                        <li><span class="t-time">Week 2</span>Point the agent at it. Let people ask what was decided
-                            about X and why Y changed. There's nothing new to learn; it's one more place to ask.</li>
-                        <li><span class="t-time">Week 3</span>Let evidence do the convincing. My bet is that the
-                            first time it answers something nobody could find, the holdouts come around. Start the
-                            byproduct loop: the agent drafts decision records, people review.</li>
-                        <li><span class="t-time">Week 4</span>Make it official. Rerun the ten-decision test, recognize
-                            the curators, and write the layer into how the team works. Then pick the first cross-team project, have Legal write its crossing rules, and turn on
-                            the legal agent for its shared layer.</li>
-                    </ul>
-                    <blockquote class="pull-quote">Nobody adopts a system on a promise. They adopt it after it
-                        answers a question they couldn't answer themselves.</blockquote>
-
-                    <h3>Keeping it honest at scale</h3>
-                    <p><strong>Disputes.</strong> When two accounts of the same decision collide, and with several
-                        people's recollections in a layer they will, the layer shouldn't pick one. It tags the
-                        dispute, cites both sources, and sends it to the record's owner to settle.</p>
-
-                    <p class="draft-note">Suggested text from here down. Keep, edit, or replace with your own.</p>
-                    <p><strong>Rollback.</strong> Every agent edit can be traced to who approved it and undone if it
-                        turns out wrong.</p>
-                    <p><strong>Access.</strong> A record inherits the permissions of its sources. If you couldn't
-                        open the original email, you can't read its summary either.</p>
-                    <p><strong>Retention.</strong> Records follow the same retention and legal-hold rules as the
-                        material they came from, in every team layer and in the shared one.</p>
-
-                    <h3>The short version</h3>
-                    <p>The model is the easy part now. What most teams are missing is memory: a record of why
-                        things happened, kept current by the agent and checked by people. Give every team its own
-                        layer, give cross-team work a shared one that a legal agent clears against Legal's rules, and hold every layer to the same controls. Skip that and you get a brilliant amnesiac.</p>
+                    <p>Background: <a href="agent-workflow-playbook.html">The Boring Secret to Building with AI
+                            Agents</a>, on how documents became my agent's memory on a solo build.</p>
 
                     <p class="disclaimer-text">This post describes my personal setup and a general pattern. It
                         doesn't describe any employer's systems, programs, or plans. All views are my own.</p>

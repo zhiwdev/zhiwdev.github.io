@@ -892,3 +892,68 @@ footer p {
     line-height: 1.6;
     white-space: pre-wrap;
 }
+
+/* ---- Series: label above the title, parts box at the end ---- */
+.series-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+}
+
+.series-nav {
+    border: 1px solid var(--ink);
+    margin: 40px 0 32px;
+}
+
+.series-nav .s-head {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--ink);
+}
+
+.series-nav ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.series-nav li {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--hairline);
+    line-height: 1.5;
+}
+
+.series-nav li:last-child {
+    border-bottom: none;
+}
+
+.series-nav .s-num {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.series-nav .s-desc {
+    display: block;
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.series-nav li.current {
+    background: #fafafa;
+    font-weight: 700;
+}
+
+.series-nav li.upcoming {
+    color: var(--gray);
+}
