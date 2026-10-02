@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Skip the enterprise context layer. Every team needs its own memory — a layer per team, a shared layer for cross-team work, one set of rules. Part 1 of Becoming an AI-Native Team.">
+    <meta property="og:title" content="Becoming an AI-Native Team: Every Team Needs Its Own Memory">
+    <meta property="og:description" content="Skip the enterprise context layer. Every team needs its own memory — a layer per team, a shared layer for cross-team work, one set of rules.">
+    <meta property="og:type" content="article">
+    <title>Becoming an AI-Native Team: Every Team Needs Its Own Memory • Zhi Wang</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .diagram-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 40px 0 12px;
+        }
+        .diagram-label.red { color: var(--red); }
+        .post .flow { margin-top: 0; }
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            font-size: 15px;
+        }
+        .compare-table th, .compare-table td {
+            border: 1px solid var(--ink);
+            padding: 12px 16px;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        .compare-table thead th {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .compare-table thead th:last-child { color: var(--red); }
+        .compare-table .row-label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 4px;
+        }
+        .tier {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 24px;
+            border-top: 1px solid var(--ink);
+            padding: 20px 0;
+            margin: 0;
+        }
+        .tier:last-of-type { border-bottom: 1px solid var(--ink); }
+        .tier-kicker {
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .tier-name { font-weight: 700; font-size: 17px; line-height: 1.35; }
+        .tier p { margin: 0; line-height: 1.6; }
+        .series-box {
+            border: 1px solid var(--ink);
+            margin: 40px 0;
+        }
+        .series-box-head {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--ink);
+        }
+        .series-row {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 16px;
+            padding: 14px 18px;
+            border-bottom: 1px solid #ddd;
+            line-height: 1.5;
+        }
+        .series-row:last-child { border-bottom: none; }
+        .series-part { color: var(--red); font-weight: 700; font-size: 13px; }
+        .series-row strong { display: block; margin-bottom: 2px; }
+        .series-row span { color: var(--gray); font-size: 14px; }
+        .fine-print {
+            font-size: 13.5px;
+            font-style: italic;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-top: 32px;
+        }
+        @media (max-width: 768px) {
+            .tier { grid-template-columns: 1fr; gap: 8px; }
+            .compare-table { font-size: 13.5px; }
+            .compare-table th, .compare-table td { padding: 10px 12px; }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLRJQ6YV95"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XLRJQ6YV95');
+    </script>
+</head>
+
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="../../index.html">ZHI WANG</a>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../bio.html">Bio</a></li>
+                    <li><a href="../../blog/" class="active">Blog</a></li>
+                    <li><a href="../../apps/">Apps &amp; Open Source</a></li>
+                    <li><a href="../../publications.html">Publications</a></li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section post">
+                <div class="sec-label"><a class="sec-back" href="../#ai">AI Learning</a> · Becoming an AI-Native Team · Part 1</div>
+                <div>
+                    <h2>Becoming an AI-Native Team: Every Team Needs Its Own Memory</h2>
+                    <p class="post-meta">2026-10-02</p>
+
+                    <blockquote class="pull-quote">Skip the enterprise context layer. Every team needs its own memory.</blockquote>
+
+                    <p>My personal notes live in Obsidian as plain markdown: what I read, what I learn, what
+                        I decide and why. An agent reads and writes that layer with me. It's close to what
+                        Andrej Karpathy calls an <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM wiki</a>,
+                        a markdown knowledge base that an agent keeps current. When I need the reasoning behind
+                        an old decision, I ask, and the agent comes back with it, linked to where it came from.</p>
+
+                    <p>That works for one person. Now picture asking your team's agent why the biggest deal of
+                        last year fell apart in the final week. It can't tell you, and a better model wouldn't
+                        help. The real reason lives in someone's head, or in a call recording nobody transcribed.
+                        The team has no memory.</p>
+
+                    <h3>The context foundation</h3>
+                    <p>We solved this once already, for data. Nobody runs shared analytics on CSVs sitting in
+                        someone's inbox, so we built a <strong>data foundation</strong>. Agents need the same
+                        thing one layer up, for why decisions were made and how the work gets done. I call it
+                        the <strong>context foundation</strong>.</p>
+
+                    <p class="diagram-label">The data foundation we already built</p>
+                    <div class="flow">
+                        <div class="flow-step">
+                            <div class="flow-num">01</div>
+                            <div class="flow-name">Raw data</div>
+                            <div class="flow-artifacts">Files, systems, feeds</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">02</div>
+                            <div class="flow-name">ETL pipelines</div>
+                            <div class="flow-artifacts">Clean, join, standardize</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">03</div>
+                            <div class="flow-name">Warehouse / lake</div>
+                            <div class="flow-artifacts">One place to look</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">04</div>
+                            <div class="flow-name">Governed</div>
+                            <div class="flow-artifacts">Access, lineage, quality</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">05</div>
+                            <div class="flow-name">Analytics &amp; ML</div>
+                            <div class="flow-artifacts">Built on top</div>
+                        </div>
+                    </div>
+
+                    <p class="diagram-label red">The context foundation agents need</p>
+                    <div class="flow">
+                        <div class="flow-step">
+                            <div class="flow-num">01</div>
+                            <div class="flow-name">Raw context</div>
+                            <div class="flow-artifacts">Meetings, email, decks, chat</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">02</div>
+                            <div class="flow-name">ETL for context</div>
+                            <div class="flow-artifacts">Transcribe, summarize, keep decisions and reasons</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">03</div>
+                            <div class="flow-name">Knowledge layer</div>
+                            <div class="flow-artifacts">Markdown, linked to source</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">04</div>
+                            <div class="flow-name">Governed</div>
+                            <div class="flow-artifacts">Permissions, trust tiers</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">05</div>
+                            <div class="flow-name">Agents</div>
+                            <div class="flow-artifacts">Built on top</div>
+                        </div>
+                    </div>
+
+                    <blockquote class="pull-quote">An agent with perfect data and no context is a brilliant amnesiac.</blockquote>
+
+                    <h3>Why this time is different</h3>
+                    <blockquote class="pull-quote">"We tried knowledge management. We have the wiki nobody updates to prove it."</blockquote>
+                    <p>Fair. Wikis died because people had to write them and people had to browse them, and
+                        neither side got much back. Now the main reader is an agent that pulls up the same note
+                        again and again, so every note is worth more. The agent can also do the upkeep, the thing
+                        that killed every wiki, because markdown is plain text it can read, write, and diff.
+                        People approve; the agent maintains.</p>
+
+                    <table class="compare-table">
+                        <thead>
+                            <tr><th>The old wiki</th><th>The AI-native layer</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="row-label">Written by</span>People, when they remember</td>
+                                <td><span class="row-label">Written by</span>The agent drafts, people approve</td>
+                            </tr>
+                            <tr>
+                                <td><span class="row-label">Read by</span>People browsing, rarely</td>
+                                <td><span class="row-label">Read by</span>Agents constantly, people through the agent</td>
+                            </tr>
+                            <tr>
+                                <td><span class="row-label">Upkeep</span>Nobody's job</td>
+                                <td><span class="row-label">Upkeep</span>The agent flags what's stale</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>A layer for every team</h3>
+                    <p>The tempting move is one context layer for the whole company — a single enterprise memory
+                        every agent draws on. I think that's the wrong shape. In a bank, the wall between the
+                        trading desk and research is a legal requirement, not an accident, and an agent with
+                        total recall is also an agent with total gossip. And a layer owned by everyone is
+                        maintained by no one.</p>
+                    <p>My view: every team gets its own layer, cross-team work gets a shared one, and the
+                        company sets the rules they all follow.</p>
+
+                    <div class="tier">
+                        <div><span class="tier-kicker">Team</span><span class="tier-name">Team layers</span></div>
+                        <p>Each team owns its decisions and how its work gets done, readable on a need-to-know
+                            basis. Tie the layer to a function, like pricing or partnerships, so it survives the
+                            next reorg.</p>
+                    </div>
+                    <div class="tier">
+                        <div><span class="tier-kicker">Shared</span><span class="tier-name">Cross-team memory</span></div>
+                        <p>Cross-team projects, like a launch, need one place where the whole decision lives.
+                            Legal writes the crossing rules once. A legal agent checks every record against them,
+                            clears the routine ones, and sends anything unclear to a person in Legal, who also
+                            samples what the agent cleared.</p>
+                    </div>
+                    <div class="tier">
+                        <div><span class="tier-kicker">Company</span><span class="tier-name">Common rules</span></div>
+                        <p>One set of controls for every layer: the record format, trust tiers, permissions,
+                            audit, retention, and legal holds.</p>
+                    </div>
+
+                    <p>The agent reads with your permissions: your team's layer, plus whatever shared records
+                        you're cleared for. A decision moves outward in steps:</p>
+
+                    <div class="flow">
+                        <div class="flow-step">
+                            <div class="flow-num">01</div>
+                            <div class="flow-name">Agent draft</div>
+                            <div class="flow-artifacts">From the transcript, in the team's draft space</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">02</div>
+                            <div class="flow-name">Team approved</div>
+                            <div class="flow-artifacts">A person on the team signs off</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">03</div>
+                            <div class="flow-name">Legal agent check</div>
+                            <div class="flow-artifacts">Applies Legal's rules; unclear cases go to a person</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">04</div>
+                            <div class="flow-name">Shared layer</div>
+                            <div class="flow-artifacts">Readable across teams, with a named owner</div>
+                        </div>
+                    </div>
+
+                    <h3>Start here: the ten-decision test</h3>
+                    <p>Before you build anything, agree with Legal, Privacy, and IT on what may be captured,
+                        and keep legal, HR, and other sensitive meetings out. Then get a baseline. Pick ten
+                        decisions your team made last quarter, ask your agent (or a new hire) why each one was
+                        made, and count how many answers come back with a source. That's your score.</p>
+
+                    <div class="series-box">
+                        <div class="series-box-head">Becoming an AI-Native Team</div>
+                        <div class="series-row">
+                            <span class="series-part">Part 1</span>
+                            <div><strong>Every team needs its own memory</strong><span>The design: a layer per team, a shared layer, one set of rules</span></div>
+                        </div>
+                        <div class="series-row">
+                            <span class="series-part">Part 2</span>
+                            <div><strong>The unit is the decision</strong><span>A decision-record template, and why nobody should write them by hand</span></div>
+                        </div>
+                        <div class="series-row">
+                            <span class="series-part">Part 3</span>
+                            <div><strong>Rolling it out</strong><span>The first month, the labor bill, and keeping it honest at scale</span></div>
+                        </div>
+                    </div>
+
+                    <p>Background: <a href="agent-workflow-playbook.html">The Boring Secret to Building with AI Agents</a>,
+                        on how documents became my agent's memory on a solo build.</p>
+
+                    <p class="fine-print">This post describes my personal setup and a general pattern. It doesn't
+                        describe any employer's systems, programs, or plans. All views are my own.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Zhi Wang • Designed with intention and care</p>
+        </footer>
+    </div>
+    <script src="../../site-config.js"></script>
+</body>
+
+</html>
