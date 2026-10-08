@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The useful unit of team memory is the decision. A one-screen decision-record template, how an agent drafts records from the sources, and the honest labor bill. Part 2 of Becoming an AI-Native Team.">
+    <meta property="og:title" content="Becoming an AI-Native Team: The Unit Is the Decision">
+    <meta property="og:description" content="The useful unit of team memory is the decision. A one-screen template, how an agent drafts records, and the honest labor bill.">
+    <meta property="og:type" content="article">
+    <meta name="robots" content="noindex">
+    <title>Becoming an AI-Native Team: The Unit Is the Decision • Zhi Wang</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .diagram-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 40px 0 12px;
+        }
+        .diagram-label.red { color: var(--red); }
+        .post .flow { margin-top: 0; }
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            font-size: 15px;
+        }
+        .compare-table th, .compare-table td {
+            border: 1px solid var(--ink);
+            padding: 12px 16px;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        .compare-table thead th {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .compare-table thead th:last-child { color: var(--red); }
+        .compare-table .row-label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 4px;
+        }
+        .tier {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 24px;
+            border-top: 1px solid var(--ink);
+            padding: 20px 0;
+            margin: 0;
+        }
+        .tier:last-of-type { border-bottom: 1px solid var(--ink); }
+        .tier-kicker {
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .tier-name { font-weight: 700; font-size: 17px; line-height: 1.35; }
+        .tier p { margin: 0; line-height: 1.6; }
+        .series-box {
+            border: 1px solid var(--ink);
+            margin: 40px 0;
+        }
+        .series-box-head {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--ink);
+        }
+        .series-row {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 16px;
+            padding: 14px 18px;
+            border-bottom: 1px solid #ddd;
+            line-height: 1.5;
+        }
+        .series-row:last-child { border-bottom: none; }
+        .series-part { color: var(--red); font-weight: 700; font-size: 13px; }
+        .series-row strong { display: block; margin-bottom: 2px; }
+        .series-row span { color: var(--gray); font-size: 14px; }
+        .fine-print {
+            font-size: 13.5px;
+            font-style: italic;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-top: 32px;
+        }
+        @media (max-width: 768px) {
+            .tier { grid-template-columns: 1fr; gap: 8px; }
+            .compare-table { font-size: 13.5px; }
+            .compare-table th, .compare-table td { padding: 10px 12px; }
+        }
+        .series-row.current { background: #fafafa; }
+        .record {
+            border: 1px solid var(--ink);
+            border-left: 4px solid var(--red);
+            background: #fafafa;
+            margin: 0 0 32px;
+            padding: 18px 20px;
+            overflow-x: auto;
+        }
+        .record pre {
+            margin: 0;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 13.5px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLRJQ6YV95"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XLRJQ6YV95');
+    </script>
+</head>
+
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="../../index.html">ZHI WANG</a>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../bio.html">Bio</a></li>
+                    <li><a href="../../blog/" class="active">Blog</a></li>
+                    <li><a href="../../apps/">Apps &amp; Open Source</a></li>
+                    <li><a href="../../publications.html">Publications</a></li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="section post">
+                <div class="sec-label"><a class="sec-back" href="../#ai">AI Learning</a> · Becoming an AI-Native Team · Part 2</div>
+                <div>
+                    <h2>Becoming an AI-Native Team: The Unit Is the Decision</h2>
+                    <p class="post-meta">Draft</p>
+
+                    <blockquote class="pull-quote">Write down decisions, one at a time, and let the agent do the
+                        drafting.</blockquote>
+
+                    <p>In <a href="ai-native-team-part1.html">Part 1</a> I argued that every team needs its own
+                        memory. The next question is what goes into it. Most teams reach for documentation: pages,
+                        decks, wikis. I think that's the wrong unit.</p>
+                    <p>A document mixes many decisions and is written for someone browsing. Six months later nobody
+                        can tell which parts still hold. When your agent is asked why the deal fell apart in the
+                        final week, what it needs is the one decision, the reason behind it, and where that reason
+                        came from.</p>
+
+                    <h3>One decision, one record</h3>
+                    <p>Software teams worked this out years ago with architecture decision records: one short file
+                        per decision, kept next to the code. I'd borrow the idea for every team. Each decision gets
+                        one record, in the same format in every layer, so an agent with access to two layers reads
+                        both the same way.</p>
+
+                    <table class="compare-table">
+                        <thead>
+                            <tr><th>A document</th><th>A decision record</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="row-label">Holds</span>Many decisions, mixed together</td>
+                                <td><span class="row-label">Holds</span>One decision</td></tr>
+                            <tr><td><span class="row-label">Answers</span>What we know</td>
+                                <td><span class="row-label">Answers</span>What we decided, and why</td></tr>
+                            <tr><td><span class="row-label">When things change</span>Edited in place</td>
+                                <td><span class="row-label">When things change</span>A new record supersedes it; the old one stays</td></tr>
+                            <tr><td><span class="row-label">Owner</span>Whoever touched it last</td>
+                                <td><span class="row-label">Owner</span>A named person</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>The template</h3>
+                    <p>Here's the template I'd start with. It fits on one screen on purpose.</p>
+                    <div class="record">
+<pre># Decision: [short title]
+
+Date:         YYYY-MM-DD
+Status:       draft | approved | superseded by [link]
+Owner:        [name or role]
+Layer:        team | shared
+Cleared by:   legal agent (rule [id]) | Legal, after escalation
+
+## What we decided
+One or two sentences.
+
+## Why
+The reasoning, in plain words.
+
+## What we considered and dropped
+- Option, and why not
+
+## Sources
+- [meeting, thread, or deck, with a link to the moment]</pre>
+                    </div>
+                    <p>Two fields do most of the work. <em>Why</em> is the part that usually lives only in
+                        someone's head. <em>Sources</em> links each claim to the meeting, thread, or deck it came
+                        from, so anyone can check the agent's reading. Here's what a filled-in record looks like:</p>
+
+                    <div class="diagram-label red">Fictional example</div>
+                    <div class="record">
+<pre># Decision: Walk away from the renewal with Client A
+
+Date:         2026-03-14
+Status:       approved
+Owner:        Head of Partnerships
+Layer:        team
+
+## What we decided
+Stop negotiating and let the contract end at term.
+
+## Why
+Their final ask put pricing below our floor for this segment,
+and matching it would have reset terms for similar accounts.
+
+## What we considered and dropped
+- Matching the price for one year: sets a precedent for
+  similar accounts
+- Escalating to their executive sponsor: tried; their
+  position didn't change
+
+## Sources
+- Deal review meeting [link to the moment]
+- Pricing committee thread [link]</pre>
+                    </div>
+
+                    <h3>Nobody writes them by hand</h3>
+                    <p>Every earlier attempt at knowledge management died on one question: why would anyone write
+                        the docs? My answer is that nobody should start from a blank page. The agent drafts the
+                        record from the source, and a person reviews it.</p>
+
+                    <div class="diagram-label">How a record gets made</div>
+                    <div class="flow">
+                        <div class="flow-step">
+                            <div class="flow-num">01</div>
+                            <div class="flow-name">Source</div>
+                            <div class="flow-artifacts">Meeting, thread, or deck</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">02</div>
+                            <div class="flow-name">Agent draft</div>
+                            <div class="flow-artifacts">Fills the template, links each claim to its source</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">03</div>
+                            <div class="flow-name">Person reviews</div>
+                            <div class="flow-artifacts">Edits, approves, or rejects</div>
+                        </div>
+                        <div class="flow-arrow"><span>→</span></div>
+                        <div class="flow-step">
+                            <div class="flow-num">04</div>
+                            <div class="flow-name">Approved record</div>
+                            <div class="flow-artifacts">Joins the team's layer; the source stays as evidence</div>
+                        </div>
+                    </div>
+
+                    <p>The sources stay the evidence. The record is a summary that points back to them, and an
+                        agent's draft never feeds the next draft until a person has approved it, so one bad summary
+                        can't harden into accepted fact.</p>
+
+                    <h3>The labor bill</h3>
+                    <p>This does create work. Someone has to review drafts, run sampling audits, and settle
+                        disputes. Reviewing a draft is much cheaper than writing from scratch, though, and a lot of
+                        that review already happens informally today, every time someone says "ask the person who
+                        was there."</p>
+                    <p>The rubber-stamp worry is real, too. Approvals nobody reads are theater. Sampling audits are
+                        the answer: check enough approved records that the agent and the people both know someone is
+                        looking. Part 3 covers how.</p>
+
+                    <h3>Start here: your first five records</h3>
+                    <p>Go back to your ten-decision test from Part 1. Take the decisions your agent couldn't
+                        explain, pick the five that matter most, and write a record for each. Let the agent draft
+                        from whatever source you can find, and time how long your review takes. Keep that number.
+                        It's the honest cost of a team memory, and Part 3 starts from it.</p>
+
+                    <div class="series-box">
+                        <div class="series-box-head">Becoming an AI-Native Team</div>
+                        <div class="series-row">
+                            <span class="series-part">Part 1</span>
+                            <div><strong><a href="ai-native-team-part1.html">Every team needs its own memory</a></strong><span>The design: a layer per team, a shared layer, one set of rules</span></div>
+                        </div>
+                        <div class="series-row current">
+                            <span class="series-part">Part 2</span>
+                            <div><strong>The unit is the decision</strong><span>A decision-record template, and why nobody should write them by hand</span></div>
+                        </div>
+                        <div class="series-row">
+                            <span class="series-part">Part 3</span>
+                            <div><strong>Rolling it out</strong><span>The first month, the labor bill, and keeping it honest at scale</span></div>
+                        </div>
+                    </div>
+
+                    <p class="fine-print">This post describes a general pattern. The example is fictional, and
+                        nothing here describes any employer's systems, programs, or plans. All views are my own.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Zhi Wang • Designed with intention and care</p>
+        </footer>
+    </div>
+    <script src="../../site-config.js"></script>
+</body>
+
+</html>
