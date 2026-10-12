@@ -1,10 +1,10 @@
 (function () {
     window.SITE_CONFIG = Object.assign({}, window.SITE_CONFIG, {
         overdueStudioUrl: 'https://overduestudio.pages.dev/',
-        // Newsletter: set your Substack publication subdomain here to activate
-        // the subscribe form, e.g. 'zhiwang' for zhiwang.substack.com.
-        // Leave empty to show the "launching soon" note instead.
-        substackSubdomain: ''
+        // Newsletter: Substack publication subdomain for the subscribe form
+        // ('zhiwang8' -> zhiwang8.substack.com). Leave empty to show the
+        // "launching soon" note instead.
+        substackSubdomain: 'zhiwang8'
     });
 
     function formatLinkText(url, mode) {
