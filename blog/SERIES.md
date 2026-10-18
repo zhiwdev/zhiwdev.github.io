@@ -9,9 +9,9 @@ still needs Zhi's approval. Re-run the humanizer and the VOICE.md check when tur
 | Part | Title (working) | What it covers | Status |
 |---|---|---|---|
 | Prequel | The Boring Secret to Building with AI Agents | One person, one agent, documents as memory | Live |
-| 1 | Every Team Needs Its Own Memory | The thesis and the design: context foundation, a layer per team, a shared layer cleared by a legal agent, the ten-decision test | Draft |
-| 2 | The Unit Is the Decision | Decision-record template, capture (ETL for context), sources stay the evidence, incentives and the labor bill | Parked text below |
-| 3 | Rolling It Out | Before-week-1 legal setup, four-week plan, ten-decision test in depth, governance at scale | Parked text below |
+| 1 | Every Team Needs Its Own Memory | The thesis and the design: context foundation, a layer per team, a shared layer cleared by a legal agent, the ten-decision test | Live (2026-10-02) |
+| 2 | The Unit Is the Decision | Decision-record template, how records get made, the labor bill, first five records | Live (2026-10-10) |
+| 3 | Rolling It Out | Four-week plan with a gate, the review bill and how to fund it, four habits for honest approval, pre-mortem | Draft (blog/posts/ai-native-team-part3.html) |
 | 4 (optional) | I Built It | Small demo on synthetic data; what broke | Not started; only promise it once Zhi commits |
 
 Every part: 800 to 1,000 words, one big idea, one main diagram, one thing readers can use on
@@ -108,3 +108,35 @@ So what is an AI-native team? My test is what the team does differently on an or
 1. Decisions get written down as markdown by default.
 2. The agent reads the team's layer, and writes to it through approval.
 3. A new hire's first week runs on the same layer the agent reads.
+
+## Parked from Zhi's Part 3 draft (2026-10-18): possible standalone post "Why AI rollouts stall"
+
+Cut from Part 3 for length and focus after review (editor, fact-check, reader panel). Not part of
+this series. Fact-check status from 2026-10-18 (web search only, primary PDFs not read):
+
+| Claim | Status | Use this wording / source |
+|---|---|---|
+| MIT NANDA 95% | Partly right | "95% of organizations got no measurable return from GenAI" (organizations, not pilots). Vendor partnerships reached deployment ~67% vs ~33% for internal builds. rcpmag.com/Articles/2025/08/25/Only-1-in-20-AI-Investments-Deliver-ROI.aspx |
+| S&P 42% vs 17% | Confirmed | Used in Part 3. ciodive.com/news/ai-project-fail-data-spglobal/742590/ |
+| Valoir 31% Agentforce active after 6 months | Not found at source | Only consultancy blogs cite it. Do not use. Also names a vendor negatively. |
+| Harvard, 718 firms | Mostly confirmed | Chen & Stratton job-market paper (not peer reviewed). LOC +30%; PR submit-to-merge time +49% (3.45 days on a 7.03-day base); revision requests nearly doubled; no significant change in resolved issues. "14% more workers in review" unverified. Used in Part 3. |
+| LinearB 8.1M PRs, 4.6x | Confirmed | "AI PRs wait 4.6x longer before review, but are reviewed 2x faster once picked up." Vendor data. linearb.io/engineering-benchmarks/ |
+| Northeastern 107 devs, 94% | Partly right | "94% failed to notice their agent had been secretly told to exfiltrate (synthetic) personal data." Not "merged". Used in Part 3. arxiv.org/abs/2606.05647 |
+| "Anthropic, 40,000 runs, 1 in 3 missed" | Misattributed | It was a Scale X browser game (40,000+ plays; players approved ~1/3 of malicious requests; timed, not representative). scalex.dev/blog/ai-agent-permissions-stats/ |
+| AWS rubber-stamp guidance | Confirmed | AWS Well-Architected Agentic AI Lens, AGENTSEC04-BP02. |
+| Duolingo memo | Confirmed (paraphrase) | Quote: "take occasional small hits on quality". Memo drew backlash; avoid praising. |
+| BT "random checks at the other end" | Not found | Do not use without Zhi's source. |
+| Replit database deletion | Confirmed | The account was SaaStr founder Jason Lemkin's (the customer), not Replit's founder. |
+| EchoLeak | Confirmed, nuance | A patched vulnerability (Aim Security, June 2025, Microsoft 365 Copilot, CVE-2025-32711), not an incident. |
+| HBR +30-40% individual, +22% org | Not found | Do not use without Zhi's source. |
+| Shoosmiths £1M for 1M Copilot prompts | Confirmed | Hit Dec 2025, four months early. lawgazette.co.uk/news/shoosmiths-unlocks-1m-bonus-after-hitting-ai-prompts-target/5125447.article |
+| "about 10% online sampling" | No source | Present as a rule of thumb (vendors suggest 5-20%). |
+| "self-reported confidence can do worse than random" | Weak support | Say "can mislead when poorly calibrated". |
+
+Other parked ideas from the draft: metrics and anti-metrics (cost per completed outcome, first-pass
+success, override rate, time-to-first-review; tokens and "% AI-generated" as anti-metrics), the evals
+bullet, the approval-theater vs oversight-system table, AgentOps-style roles, incentives and champions
+(Goodhart via Shoosmiths). Reader-panel and finance notes: define cost per completed outcome as fully
+loaded workflow cost divided by outputs accepted without rework, against a matched pre-pilot baseline;
+show before vs after hours and annualized cost; regulated-work carve-out (no sampled-only or
+autonomous review for GxP, safety reporting, promotional review, personal data).
