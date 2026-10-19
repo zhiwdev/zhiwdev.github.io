@@ -11,116 +11,6 @@
     <meta name="robots" content="noindex">
     <title>Becoming an AI-Native Team: Rolling It Out • Zhi Wang</title>
     <link rel="stylesheet" href="../../styles.css">
-    <style>
-        .diagram-label {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin: 40px 0 12px;
-        }
-        .diagram-label.red { color: var(--red); }
-        .post .flow { margin-top: 0; }
-        .compare-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 32px 0;
-            font-size: 15px;
-        }
-        .compare-table th, .compare-table td {
-            border: 1px solid var(--ink);
-            padding: 12px 16px;
-            text-align: left;
-            vertical-align: top;
-            line-height: 1.5;
-        }
-        .compare-table thead th {
-            font-size: 12px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-        .compare-table thead th:last-child { color: var(--red); }
-        .compare-table .row-label {
-            display: block;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--gray);
-            margin-bottom: 4px;
-        }
-        .tier {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 24px;
-            border-top: 1px solid var(--ink);
-            padding: 20px 0;
-            margin: 0;
-        }
-        .tier:last-of-type { border-bottom: 1px solid var(--ink); }
-        .tier-kicker {
-            color: var(--red);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 6px;
-        }
-        .tier-name { font-weight: 700; font-size: 17px; line-height: 1.35; }
-        .tier p { margin: 0; line-height: 1.6; }
-        .series-box {
-            border: 1px solid var(--ink);
-            margin: 40px 0;
-        }
-        .series-box-head {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 14px 18px;
-            border-bottom: 1px solid var(--ink);
-        }
-        .series-row {
-            display: grid;
-            grid-template-columns: 70px 1fr;
-            gap: 16px;
-            padding: 14px 18px;
-            border-bottom: 1px solid #ddd;
-            line-height: 1.5;
-        }
-        .series-row:last-child { border-bottom: none; }
-        .series-part { color: var(--red); font-weight: 700; font-size: 13px; }
-        .series-row strong { display: block; margin-bottom: 2px; }
-        .series-row span { color: var(--gray); font-size: 14px; }
-        .fine-print {
-            font-size: 13.5px;
-            font-style: italic;
-            color: var(--gray);
-            line-height: 1.6;
-            margin-top: 32px;
-        }
-        @media (max-width: 768px) {
-            .tier { grid-template-columns: 1fr; gap: 8px; }
-            .compare-table { font-size: 13.5px; }
-            .compare-table th, .compare-table td { padding: 10px 12px; }
-        }
-        .series-row.current { background: #fafafa; }
-        .record {
-            border: 1px solid var(--ink);
-            border-left: 4px solid var(--red);
-            background: #fafafa;
-            margin: 0 0 32px;
-            padding: 18px 20px;
-            overflow-x: auto;
-        }
-        .record pre {
-            margin: 0;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-            font-size: 13.5px;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLRJQ6YV95"></script>
     <script>
@@ -148,9 +38,10 @@
         </header>
 
         <main>
-            <section class="section post">
-                <div class="sec-label"><a class="sec-back" href="../#ai">AI Learning</a> · Becoming an AI-Native Team · Part 3</div>
+            <section class="section">
+                <div class="sec-label"><a class="sec-back" href="../#ai">AI Learning</a></div>
                 <div>
+                    <div class="series-label">Becoming an AI-Native Team · Part 3</div>
                     <h2>Becoming an AI-Native Team: Rolling It Out</h2>
                     <p class="post-meta">Draft</p>
 
@@ -163,7 +54,8 @@
                     <p>Left alone, I'd expect it to fail like this. In month one the agent drafts, people review, and
                         everything feels fast. In month two the review queue eats the team: the drafts keep coming
                         and the reviewers stop reading. By month three the team memory is another wiki nobody
-                        updates. It's a common ending: in <a href="https://www.ciodive.com/news/ai-project-fail-data-spglobal/742590/">S&amp;P Global's
+                        updates. It's a common ending: in
+                        <a href="https://www.ciodive.com/news/ai-project-fail-data-spglobal/742590/">S&amp;P Global's
                         2025 survey</a>, 42% of companies had abandoned most of their AI initiatives, up from 17% a
                         year earlier.</p>
 
@@ -172,37 +64,40 @@
                     <ul class="timeline">
                         <li><span class="t-time">Before week 1</span>Agree with Legal, Privacy, and IT on what may be
                             captured, who has to consent to recording, and how long records are kept. Run the
-                            ten-decision test from Part 1 to get your baseline.</li>
+                            ten-decision test from Part 1 on ten recent decisions to get your baseline.</li>
                         <li><span class="t-time">Week 1</span>Turn on capture for that one team, where it's approved.
-                            The layer starts to fill on its own.</li>
-                        <li><span class="t-time">Week 2</span>Point the agent at it. Let people ask what was decided
-                            and why.</li>
-                        <li><span class="t-time">Week 3</span>Start the loop from Part 2: the agent drafts decision
-                            records and people approve them.</li>
-                        <li><span class="t-time">Week 4</span>Rerun the ten-decision test and compare it with your
-                            baseline.</li>
+                            Sources pile up, but nothing counts as the team's answer yet.</li>
+                        <li><span class="t-time">Week 2</span>Start the loop from Part 2: the agent drafts decision
+                            records from those sources, and people approve them or send them back.</li>
+                        <li><span class="t-time">Week 3</span>Point the agent at the approved records. Let people ask
+                            what was decided and why.</li>
+                        <li><span class="t-time">Week 4</span>Run the ten-decision test again, this time on ten
+                            decisions made since week 1, and compare it with your baseline.</li>
                     </ul>
-                    <p>My view: the gate matters more than the plan. You move on when someone can point at work the
-                        agent did and work a person sent back. If nobody can point, you're still in the previous
-                        week. Write down what would make you stop before week 1, in numbers you can check. Without one, the pilot fades slowly and eats review hours the
-                        whole time.</p>
+                    <p>My view: the gate matters more than the plan. You move on when someone can point at what the
+                        week produced and what a person kept out or sent back. If nobody can point, you're still in
+                        the previous week. Write down your stop rule before week 1, in numbers you can check.
+                        Without one, the pilot fades and eats review hours the whole time.</p>
 
-                    <div class="diagram-label red">Fictional example: a stop rule</div>
-                    <div class="record">
-<pre>We expand if the week-4 rerun answers twice as many of the
-ten decisions with a source, and review stays inside the
-hours we funded. We stop if it does neither.
+                    <div class="flow-label accent">Fictional example: a stop rule</div>
+                    <div class="template">
+<pre>We expand if at least six of the ten new decisions come
+back with a source, and review stays inside the hours we
+funded.
+
+If only one of those holds, we fix that one and run the
+test again in two weeks. If neither holds, we stop.
 
 If reviewers almost never send a draft back, we fix the
 review before we judge the pilot.</pre>
                     </div>
 
                     <h3>The labor bill</h3>
-                    <p>Part 2 ended with a number: how long it took you to review a record. Multiply it by how many
-                        records the agent drafts a week, and that's the bill.</p>
+                    <p>Part 2 ended with a number: how long it took you to review five records. Divide it by five for minutes per record, then multiply by how many records the agent
+                        drafts a week to get the bill.</p>
 
-                    <div class="diagram-label">Fictional example: one team's review bill</div>
-                    <div class="flow">
+                    <div class="flow-label">Fictional example: one team's review bill</div>
+                    <div class="flow tight">
                         <div class="flow-step">
                             <div class="flow-num">01</div>
                             <div class="flow-name">20 records</div>
@@ -212,7 +107,7 @@ review before we judge the pilot.</pre>
                         <div class="flow-step">
                             <div class="flow-num">02</div>
                             <div class="flow-name">12 minutes</div>
-                            <div class="flow-artifacts">Your review time from Part 2</div>
+                            <div class="flow-artifacts">Per record: your Part 2 time divided by five</div>
                         </div>
                         <div class="flow-arrow"><span>→</span></div>
                         <div class="flow-step">
@@ -228,34 +123,34 @@ review before we judge the pilot.</pre>
                         </div>
                     </div>
 
-                    <p>Add the rest of the work Parts 1 and 2 named: sampling audits, settling disputes, and Legal
-                        keeping its rules current and answering what the legal agent escalates. Then compare it with
-                        what the same answers cost today, which is all the time spent chasing "ask the person who was
-                        there."</p>
-                    <p>Review is where these rollouts get stuck. A
-                        <a href="https://jellyfish.co/blog/harvard-jellyfish-ai-is-making-developers-faster/">Harvard
-                        working paper</a> on 718 firms that adopted coding agents found code output up about 30%,
-                        while the time from submission to merge rose 49% and resolved work didn't move.</p>
+                    <p>Add the rest of the work Part 2 named: sampling audits and settling disputes. Legal's share
+                        starts later, when the first cross-team project gets a shared layer: writing the crossing
+                        rules and answering what the legal agent escalates. Compare the bill with what the same answers cost today: all the time spent chasing "ask the person who was there."</p>
+                    <p>Review is where these rollouts get stuck. In a
+                        <a href="https://fion.ac/jellyfish.pdf">job-market paper</a> by two Harvard PhD candidates,
+                        covering 718 firms, coding agents raised code per worker by about 30% while finished work
+                        didn't move, and the authors point to code review as the bottleneck.</p>
                     <p>So the ask to your CFO is short: named people and funded hours, sized from your own review
-                        number, with a budget line for "whoever's free" set to zero. In return you report two numbers
-                        at week 4: the ten-decision score against baseline, and review hours against budget. If they don't clear the stop rule, you stop.</p>
+                        number, with nothing left to "whoever's free." In return you report two numbers at week 4:
+                        the ten-decision score against baseline, and review hours against budget. Then you do what
+                        the stop rule says.</p>
 
                     <h3>Keeping it honest at scale</h3>
                     <p>People approve what agents hand them. In a
                         <a href="https://arxiv.org/abs/2606.05647">Northeastern study</a>, 94% of 107 professional
                         developers failed to notice that their coding agent had been secretly told to leak
                         (synthetic) personal data.</p>
-                    <blockquote class="pull-quote">Approving everything and approving nothing leave the same audit
-                        trail.</blockquote>
+                    <blockquote class="pull-quote">A rubber stamp and a real review leave the same audit trail.</blockquote>
                     <p>Four habits keep approval honest.</p>
-                    <p><strong>Review by consequence.</strong> A person reviews every record that is hard to undo or
-                        touches regulated work: validated systems, safety reporting, promotional review, personal
-                        data. That work keeps the review your compliance team already requires, and it is never left
-                        to sampling. Routine records get sampled.</p>
-                    <p><strong>Sample on purpose.</strong> Someone other than the approver checks a fixed slice,
-                        about 1 in 10, the way you'd run a quality audit. They check one thing: does the record's Why match its
-                        linked source? A miss reopens the record. Legal samples what the legal agent
-                        cleared, the same way.</p>
+                    <p><strong>Review by consequence.</strong> Every record still gets a person's approval; what changes
+                        is how hard they look. Records that are hard to undo or touch regulated work (validated
+                        systems, safety reporting, promotional review, personal data) get the full review your
+                        compliance team already requires. Routine records get a quick approval, and the audit below
+                        checks a sample of them.</p>
+                    <p><strong>Sample on purpose.</strong> Someone other than the approver checks a fixed slice, about
+                        1 in 10, the way you'd run a quality audit. They check one thing: does the record's Why match
+                        its linked source? A miss reopens the record. Once a shared layer exists, Legal samples what
+                        the legal agent cleared the same way.</p>
                     <p><strong>Test the reviewers.</strong> Now and then, slip in a draft with a known error and see
                         who catches it. A low push-back rate can mean a good agent or a sleepy reviewer, and this is
                         how you tell which.</p>
@@ -266,27 +161,27 @@ review before we judge the pilot.</pre>
 
                     <h3>Start here: the rollout pre-mortem</h3>
                     <p>Gather the team and ask: it's a month from now and the pilot died. What killed it? Then do four
-                        things. Multiply your Part 2 review minutes by records per week. Name whose hours those are.
-                        Write one stop rule. Put the ten-decision rerun on the calendar for week 4. If the likeliest
-                        answer is "nobody staffed the review," you've found your first task.</p>
+                        things. Work out your minutes per record from Part 2 and multiply by records per week. Name
+                        whose hours those are. Write one stop rule. Put the ten-decision rerun on the calendar for
+                        week 4. If the likeliest answer is "nobody staffed the review," you've found your first
+                        task.</p>
 
-                    <div class="series-box">
-                        <div class="series-box-head">Becoming an AI-Native Team</div>
-                        <div class="series-row">
-                            <span class="series-part">Part 1</span>
-                            <div><strong><a href="ai-native-team-part1.html">Every team needs its own memory</a></strong><span>The design: a layer per team, a shared layer, one set of rules</span></div>
-                        </div>
-                        <div class="series-row">
-                            <span class="series-part">Part 2</span>
-                            <div><strong><a href="ai-native-team-part2.html">The unit is the decision</a></strong><span>A decision-record template, and why nobody should write them by hand</span></div>
-                        </div>
-                        <div class="series-row current">
-                            <span class="series-part">Part 3</span>
-                            <div><strong>Rolling it out</strong><span>The first month, the labor bill, and keeping it honest at scale</span></div>
-                        </div>
+                    <div class="series-nav">
+                        <div class="s-head">Becoming an AI-Native Team</div>
+                        <ol>
+                            <li><span class="s-num">Part 1</span><span><a href="ai-native-team-part1.html">Every team
+                                        needs its own memory</a><span class="s-desc">The design: a layer per team, a
+                                        shared layer, one set of rules</span></span></li>
+                            <li><span class="s-num">Part 2</span><span><a href="ai-native-team-part2.html">The unit is
+                                        the decision</a><span class="s-desc">A decision-record template, and why nobody
+                                        should write them by hand</span></span></li>
+                            <li class="current"><span class="s-num">Part 3</span><span>Rolling it out<span
+                                        class="s-desc">The first month, the labor bill, and keeping it honest at
+                                        scale</span></span></li>
+                        </ol>
                     </div>
 
-                    <p class="fine-print">This post describes a general pattern. Examples are fictional unless
+                    <p class="disclaimer-text">This post describes a general pattern. Examples are fictional unless
                         sourced, and nothing here describes any employer's systems, programs, or plans. All views are
                         my own.</p>
                 </div>
